@@ -1,0 +1,21 @@
+<%- include("partials/header"); -%>
+
+<h1>Publish your Research</h1>
+<form action="/publish" method="post">
+    <input type="text" name="name" placeholder="Full Name">
+    <input type="text" name="email" placeholder="Email Address">
+    <br>
+    <input type="text" name="postTitle" placeholder="Title"> 
+    <br>
+    <textarea name="postBody" id="" cols="30" rows="5" placeholder="Body"></textarea>
+    <br>
+    <button type="submit" name="button" onclick="myFunction()">SEND</button>
+    <script>
+        function myFunction() {
+            alert("Submitted!");
+        }
+    </script>
+</form>
+
+
+<%- include("partials/footer"); -%>
