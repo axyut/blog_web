@@ -1,0 +1,24 @@
+
+ <%- include("partials/header"); -%> <!-- name of the file you wanted to include  views folder is already known to app.js by us -->
+
+<h1>Introduction</h1>
+<p><%= StartingContent %></p>
+
+<!-- there is easier method to use data from array
+
+ for(let i=0; i<newposts.length; i++) {   
+     console.log(newposts[i].title);   
+   };  
+
+-->
+
+<% newposts.forEach(function(post){  %>
+    <h1><%= post.title %></h1>
+    <p>
+        <%= post.content.substring(0,150) +"..." %>
+        <a href="/posts/<%= post.title %>">Read more</a>
+    </p>
+<% }); %>
+
+<%- include("partials/footer"); -%>
+
