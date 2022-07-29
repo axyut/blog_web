@@ -71,9 +71,9 @@ app.post("/publish", function(req,res){
         user: 'axyut@outlook.com',
         pass: 'hotmailak001', 
       },
-      tls:{
-        rejectUnauthorized:false
-      }
+      // tls:{
+      //   rejectUnauthorized:false
+      // }
     });
 
     // send mail with defined transport object
