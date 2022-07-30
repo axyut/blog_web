@@ -70,7 +70,7 @@ app.post("/publish", function(req,res){
       auth: {
         user: 'axyut@outlook.com',
         pass: 'hotmailak001', 
-      },
+      }, // for local host testing uncomment below
       // tls:{
       //   rejectUnauthorized:false
       // }
