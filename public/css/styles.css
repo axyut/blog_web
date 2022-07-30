@@ -179,3 +179,33 @@
   }
   
   
+  .logoe {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    margin-left: 1rem;
+    border-radius: 8px;
+  }
+  
+.button {
+    background-color: #333833; 
+    border-style: ridge;
+    border-color: #1e1e24;
+    border-radius: 12px;
+    color: rgb(201, 225, 197);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration:solid;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+  
+.button:hover {
+    background-color: #28de77cf;
+  }
