@@ -14,9 +14,9 @@ const Oauth2 = google.auth.OAuth2;
 const config = require("./config.js");
 
 const Redirect_URL = 'https://developers.google.com/oauthplayground'
-const clientId = config.clientId;
-const clientSecret= config.clientSecret;
-const refreshToken= config.refreshToken;
+const clientId = '51365520624-m3eih0krlole7o6mfr0e6o9tioqoe1p5.apps.googleusercontent.com'
+const clientSecret= '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'
+const refreshToken= '1//04RgJ1QzLn68pCgYIARAAGAQSNwF-L9IrmpZ5dNtaSGXC-ER6tkOIZrMkoed75jseN5xTrMAPgK2eYvNTLdSo0USgT0eVpH--htc'
 
 const OAuth2Client = new google.auth.OAuth2(clientId, clientSecret, Redirect_URL )
 OAuth2Client.setCredentials( {refresh_token: refreshToken});
