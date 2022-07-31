@@ -11,7 +11,7 @@ const { lte, result } = require("lodash");
 const nodemailer= require("nodemailer");
 const { google } = require("googleapis");
 const Oauth2 = google.auth.OAuth2;
-const config = require("./config.js");
+//const config = require("./config.js");
 
 const Redirect_URL = 'https://developers.google.com/oauthplayground'
 const clientId = '51365520624-m3eih0krlole7o6mfr0e6o9tioqoe1p5.apps.googleusercontent.com'
