@@ -35,8 +35,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //let newposts=[];
-//using mongoose to store blog in database
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
+//using mongoose to store blog in local database
+//mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
+// use mongoose to store in mongo atlas cloud database
+mongoose.connect("mongodb+srv://axyut:inGcasEDtBrIiJEb@cluster0.zoxas8a.mongodb.net/blogDB", {useNewUrlParser: true});
 
 const postSchema = {
   title: String,
