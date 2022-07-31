@@ -6,6 +6,7 @@ const ejs = require("ejs");
 const _ = require("lodash");
 const { redirect } = require("express/lib/response");
 const { lte, result } = require("lodash");
+const mongoose = require("mongoose");
 
 // Mailing ############
 const nodemailer= require("nodemailer");
@@ -33,10 +34,24 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-let newposts=[];
+//let newposts=[];
+//using mongoose to store blog in database
+mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
+
+const postSchema = {
+  title: String,
+  content: String
+};
+const Post = mongoose.model("Post", postSchema);
 
 app.get("/", function(req,res){
-  res.render("home", {StartingContent: homeStartingContent, newposts:newposts});
+  
+  Post.find({}, function(err, posts){
+    res.render("home", {
+      startingContent: homeStartingContent,
+      posts: posts
+      });
+  });
 });
 
 app.get("/about", function(req,res){
@@ -112,34 +127,33 @@ app.post("/publish", function(req,res){
   .catch(error => console.log(error.message))
   res.redirect('/');
 
-
 });
 
+app.post("/compose", function(req, res){
+  const post = new Post({
+    title: req.body.postTitle,
+    content: req.body.postBody
+  });
 
-
-
-app.post("/compose", function(req,res){
-
-  const post = {
-    title:req.body.postTitle,
-    content:req.body.postBody
-  };
-  newposts.push(post);
-  res.redirect("/");
-});
-
-app.get("/posts/:postName", function(req,res){
- const reqTitle= _.lowerCase(req.params.postName);    // using lodash library to convert into lower case
-
-  newposts.forEach(function(post){
-    const storedTitle = _.lowerCase(post.title);
-
-    if ( storedTitle === reqTitle){
-      res.render("post", {title:post.title, content:post.content});
+  post.save(function(err){
+    if (!err){
+      res.redirect("/");
     }
- });
-
+  });
 });
+
+app.get("/posts/:postId", function(req, res){
+
+  const requestedPostId = req.params.postId;
+  
+    Post.findOne({_id: requestedPostId}, function(err, post){
+      res.render("post", {
+        title: post.title,
+        content: post.content
+      });
+    });
+  
+  });
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Server is runnig on heroku server or port 3000 in local server")
