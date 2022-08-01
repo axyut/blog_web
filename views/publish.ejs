@@ -2,13 +2,13 @@
 
 <h1>Feature Your Article</h1>
 <form action="/publish" method="post">
-    <input class="logoe" type="text" name="name" placeholder="Full Name">
+    <input class="logoe" type="text" name="name" placeholder="*Full Name" required>
     <br>
-    <input class="logoe" type="text" name="email" placeholder="Email Address">
+    <input class="logoe" type="text" name="email" placeholder="*Email Address" required>
     <br>
-    <input class="logoe" type="text" name="postTitle" placeholder="Title"> 
+    <input class="logoe" type="text" name="postTitle" placeholder="*Title" required> 
     <br>
-    <textarea class="logoe" name="postBody" id="" cols="23" rows="11" placeholder="Body"></textarea>
+    <textarea class="logoe" name="postBody" id="" cols="23" rows="11" placeholder="*Body" required></textarea>
     <br>
     <button class="button" type="submit" name="button" onclick="myFunction()">SEND</button>
     <script>
