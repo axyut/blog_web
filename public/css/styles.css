@@ -1,5 +1,3 @@
-/* @import "https://unpkg.com/open-props";
-@import "https://unpkg.com/open-props/normalize.min.css"; */
 
 :root {
     font-size: 16px;
@@ -10,7 +8,7 @@
     --bg-secondary: #141418;
     --transition-speed: 600ms;
   }
-  
+
   body {
     color: #b6b6b6;
     background-color:#141418;
@@ -201,11 +199,17 @@
       background-color: #3dbd74cf;
       color: rgb(54, 49, 49);
     }
-
+    
+    .media-scroller {
+      grid-auto-columns: 100%;
+    }
   }
   
   /* Large screens */
   @media only screen and (min-width: 600px) {
+    .container{
+      width: 100vw;
+    }
     .navbar {
       top: 0;
       width: 5rem;
@@ -237,6 +241,10 @@
     .button:hover {
       background-color: #28de77cf;
     }
+    
+    .media-scroller {
+      grid-auto-columns: 39%;
+    }
   }
   
   
@@ -266,3 +274,70 @@
   }
 
 
+/*horizontal scroll home page*/
+
+
+  .media-scroller {
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+    /* grid-auto-columns: 39%; */
+
+    padding: 0 0 0;
+
+    overflow-x:auto;
+    overscroll-behavior-inline: contain;
+  }
+  .media-scroller::-webkit-scrollbar{
+    width: 0%;
+  }
+
+  .media-element {
+    cursor:auto;
+    display: grid;
+    grid-template-rows: -webkit-min-content;
+    grid-template-rows:min-content;
+    gap: 0rem;
+    padding: 1rem;
+    background: #25252c;
+    border-radius: 0.5rem;
+    box-shadow: #0d0d0f;
+  }
+  .media-element h2{
+    display: inline;
+    height: 5rem;
+  }
+  .media-element a{
+    display: inline-block;
+  }
+
+  .media-element > p {
+    inline-size: 100%;
+    aspect-ratio: 12/9;
+    -o-object-fit: cover;
+      object-fit: cover;
+  }
+
+  .snaps-inline {
+    -ms-scroll-snap-type: inline mandatory;
+        scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 1rem, 1rem;
+  }
+
+  .snaps-inline > * {
+    scroll-snap-align: start;
+  }
+
+  /* general styling */
+
+  .container {
+    inline-size: min(100% - 4rem, 70rem);
+    margin-inline:auto;
+    width: 90vw;
+
+  }
+
+
+  p{
+    font-size:larger;
+  }

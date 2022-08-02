@@ -46,9 +46,7 @@ const postSchema = {
 const Post = mongoose.model("Post", postSchema);
 
 app.get("/", function(req,res){
-  res.render("home", {
-    start: homeStartingContent
-    });
+  res.render("home");
 });
 
 app.get("/blogs", function(req,res){
