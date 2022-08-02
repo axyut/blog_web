@@ -1,6 +1,14 @@
 <%- include("partials/header"); -%> 
 
-<h1>Compose New Article</h1>
+<h1>Blogs Section</h1>
+<form action="/compose" method="post">
+        <input class="logoe" type="text" name="postTitle" placeholder="Title"> <br><br> 
+        <textarea class="logoe" name="postBody" id="" cols="40" rows="15" placeholder="Body"></textarea>
+        <br><button class="button" type="submit" name="button">Compose</button>
+
+</form>
+
+<h1>Home Section</h1>
 <form action="/compose" method="post">
         <input class="logoe" type="text" name="postTitle" placeholder="Title"> <br><br> 
         <textarea class="logoe" name="postBody" id="" cols="40" rows="15" placeholder="Body"></textarea>

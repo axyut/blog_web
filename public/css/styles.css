@@ -1,3 +1,6 @@
+/* @import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css"; */
+
 :root {
     font-size: 16px;
     font-family: 'Open Sans';
@@ -191,13 +194,13 @@
     }
 
     .nav-link:active{
-      transform: translateY(80px);
+      transform: translateY(70px);
     }
-    
-    /* .fa-primary,
-    .fa-secondary {
-      transition:none;
-  } */
+
+    .button{
+      background-color: #3dbd74cf;
+      color: rgb(54, 49, 49);
+    }
 
   }
   
@@ -226,6 +229,14 @@
     {
       left: 0px;
     }
+
+    .button{
+      background-color: #333833; 
+      color: rgb(201, 225, 197);
+    }
+    .button:hover {
+      background-color: #28de77cf;
+    }
   }
   
   
@@ -242,11 +253,9 @@
   }
   
   .button {
-    background-color: #333833; 
     border-style: ridge;
     border-color: #1e1e24;
     border-radius: 12px;
-    color: rgb(201, 225, 197);
     padding: 15px 32px;
     text-align: center;
     text-decoration:solid;
@@ -255,7 +264,5 @@
     cursor: pointer;
     margin-left: 1rem;
   }
-  
-  .button:hover {
-    background-color: #28de77cf;
-  }
+
+
