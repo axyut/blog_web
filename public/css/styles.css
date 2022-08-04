@@ -9,6 +9,17 @@
     --transition-speed: 600ms;
   }
 
+  h1{
+    font-size: 30px;
+    font-family: 'Open Sans';
+    color: #baded0;
+  }
+  h2{
+    font-size: 24px;
+    font-family: 'Open Sans';
+    color:#c9c4ba ;
+  }
+
   body {
     color: #b6b6b6;
     background-color:#141418;
@@ -17,7 +28,7 @@
   }
   
   body::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0.4rem;
   }
   
   body::-webkit-scrollbar-track {
@@ -134,12 +145,20 @@
   
   /* Small screens */
   @media only screen and (max-width: 600px) {
+    .media-scroller::-webkit-scrollbar{
+      width: 0%;
+    }
+
     .navbar {
       bottom: 0;
-      width: 100%;
+      width:100%;
       height: 5rem;
       overflow-y: hidden;
     }
+/* 
+    .navbar::-webkit-scrollbar{
+      width: 0%;
+    } */
   
     .logo {
       display: none;
@@ -161,7 +180,7 @@
   
     main {
       margin-left: 0;
-      margin-bottom: 6rem;
+      margin-bottom: 5rem;
       width:fit-content;
     }
       
@@ -207,13 +226,29 @@
   
   /* Large screens */
   @media only screen and (min-width: 600px) {
+    .media-scroller::-webkit-scrollbar {
+      width: 10%;
+    }
+    
+    .media-scroller::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+    
+    .media-scroller::-webkit-scrollbar-thumb {
+      background: linear-gradient(transparent,var(--bg-primary));
+    }
+    
+    .media-scroller::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(transparent,var(--bg-secondary) );
+    }
+
     .container{
       width: 100vw;
     }
     .navbar {
       top: 0;
       width: 5rem;
-      height: 100vh;
+      height:100%;
     }
   
     .navbar:hover {
@@ -256,8 +291,19 @@
     background: var(--bg-secondary);
     font-size: 1.5rem;
     letter-spacing: 0ch;
-    margin-left: 1rem;
+    margin-left: 0rem;
     border-radius: 8px;
+  }
+  .logoee {
+    font-weight: normal;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1rem;
+    letter-spacing: 0ch;
+    margin-left: 0rem;
+    border-radius: 8px;
+    text-align:left;
   }
   
   .button {
@@ -270,7 +316,7 @@
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-    margin-left: 1rem;
+    margin-left: 0rem;
   }
 
 
@@ -283,13 +329,10 @@
     grid-auto-flow: column;
     /* grid-auto-columns: 39%; */
 
-    padding: 0 0 0;
+    padding: 0 0 0 0;
 
     overflow-x:auto;
     overscroll-behavior-inline: contain;
-  }
-  .media-scroller::-webkit-scrollbar{
-    width: 0%;
   }
 
   .media-element {
@@ -297,7 +340,7 @@
     display: grid;
     grid-template-rows: -webkit-min-content;
     grid-template-rows:min-content;
-    gap: 0rem;
+    gap: 0.8rem;
     padding: 1rem;
     background: #25252c;
     border-radius: 0.5rem;
