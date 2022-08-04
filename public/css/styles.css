@@ -145,6 +145,10 @@
   
   /* Small screens */
   @media only screen and (max-width: 600px) {
+    .media-element h2{
+      height:auto;
+    }
+    
     .media-scroller::-webkit-scrollbar{
       width: 0%;
     }
@@ -224,6 +228,10 @@
   
   /* Large screens */
   @media only screen and (min-width: 600px) {
+    .media-element h2{
+      height:6rem;
+    }
+
     .media-scroller::-webkit-scrollbar {
       width: 10%;
     }
@@ -346,11 +354,6 @@
   }
   .media-element h2{
     display:inline;
-    height:auto;
-  }
-  .media-element a{
-    display: inline;
-    height:auto;
   }
 
   .media-element > p {
@@ -382,4 +385,10 @@
 
   p{
     font-size: 19px;
+  }
+
+  .sideways{
+    font-size: 13px;
+    font-weight: bold;
+    font-family:monospace;
   }

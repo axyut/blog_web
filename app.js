@@ -44,9 +44,16 @@ const postSchema = {
   content: String
 };
 const Post = mongoose.model("Post", postSchema);
+const Home = mongoose.model("Home", postSchema);
 
 app.get("/", function(req,res){
-  res.render("home");
+
+  Home.find({}, function(err, homes){
+    res.render("home", {
+      homes: homes
+    });
+  });
+  
 });
 
 app.get("/blogs", function(req,res){
@@ -140,17 +147,34 @@ app.post("/publish", function(req,res){
 
 });
 
-app.post("/compose", function(req, res){
-  const post = new Post({
+app.post("/composeblogs", function(req, res){
+
+    const post = new Post({
+      title: req.body.postTitle,
+      content: req.body.postBody
+    });
+
+    post.save(function(err){
+      if (!err){
+        res.redirect("/");
+      }
+    });
+  
+});
+
+app.post("/composehome", function(req,res){
+
+  const home = new Home({
     title: req.body.postTitle,
     content: req.body.postBody
   });
 
-  post.save(function(err){
+  home.save(function(err){
     if (!err){
       res.redirect("/");
     }
   });
+
 });
 
 app.get("/posts/:postId", function(req, res){
@@ -164,7 +188,22 @@ app.get("/posts/:postId", function(req, res){
       });
     });
   
-  });
+});
+
+
+app.get("/post/:homeId", function(req, res){
+
+  const requestedHomeId = req.params.homeId;
+  
+    Home.findOne({_id: requestedHomeId}, function(err, home){
+      res.render("post", {
+        title: home.title,
+        content: home.content
+      });
+    });
+  
+});
+
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Server is runnig on heroku server or port 3000 in local server")

@@ -1,19 +1,20 @@
 <%- include("partials/header"); -%> 
 
 <h1>Blogs Section</h1>
-<form action="/compose" method="post">
+<form action="/composeblogs" method="post" >
         <input class="logoe" type="text" name="postTitle" placeholder="Title"> <br><br> 
         <textarea class="logoe" name="postBody" id="" cols="40" rows="15" placeholder="Body"></textarea>
-        <br><button class="button" type="submit" name="button">Compose</button>
+        <br><button class="button" type="submit" name="blogsButton">Compose</button>
 
 </form>
-
+<a href="/"> <p> ⏪ Home </p> </a>
 <h1>Home Section</h1>
-<form action="/compose" method="post">
+<form action="/composehome" method="post">
         <input class="logoe" type="text" name="postTitle" placeholder="Title"> <br><br> 
         <textarea class="logoe" name="postBody" id="" cols="40" rows="15" placeholder="Body"></textarea>
-        <br><button class="button" type="submit" name="button">Compose</button>
+        <br><button class="button" type="submit" name="homeButton">Compose</button>
 
 </form>
+
 
 <%- include("partials/footer"); -%>
