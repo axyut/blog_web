@@ -187,8 +187,8 @@
     .link-text {
       margin-inline-start: 0%;
       display:flow-root;
-      margin-top:6.9rem;
-      margin-bottom: 0;
+      margin-top:0rem;
+      margin-bottom: 6.9rem;
       position:fixed;
       font-size: 0.8rem;
       text-align:start;
@@ -202,16 +202,12 @@
 
     .nav-link:focus{
           display: flex;
-          transform: translateY(-60px);
+          transform: translateY(55px);
           background-color: #23232e;
     }
 
-    .link-text:focus{
-      transform: translateY(50px);
-    }
-
     .nav-link:active{
-      transform: translateY(70px);
+      transform: translateY(85px);
     }
 
     .button{
@@ -327,7 +323,6 @@
     display: grid;
     gap: 1rem;
     grid-auto-flow: column;
-    /* grid-auto-columns: 39%; */
 
     padding: 0 0 0 0;
 
@@ -338,20 +333,22 @@
   .media-element {
     cursor:auto;
     display: grid;
-    grid-template-rows: -webkit-min-content;
+    /* grid-template-rows: -webkit-min-content; */
     grid-template-rows:min-content;
-    gap: 0.8rem;
-    padding: 1rem;
+    gap: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background: #25252c;
     border-radius: 0.5rem;
     box-shadow: #0d0d0f;
   }
   .media-element h2{
-    display: inline;
-    height: 5rem;
+    display:inline;
+    height:auto;
   }
   .media-element a{
-    display: inline-block;
+    display: inline;
+    height:auto;
   }
 
   .media-element > p {
