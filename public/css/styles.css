@@ -187,8 +187,8 @@
     .link-text {
       margin-inline-start: 0%;
       display:flow-root;
-      margin-top:0rem;
-      margin-bottom: 6.9rem;
+      margin-top:0rem;   /* interchange top and bottom  6.9, 0*/
+      margin-bottom: 20rem;
       position:fixed;
       font-size: 0.8rem;
       text-align:start;
@@ -202,12 +202,14 @@
 
     .nav-link:focus{
           display: flex;
-          transform: translateY(55px);
+          transform: translateY(160px);
+          /* transform: translateY(-60px); */
           background-color: #23232e;
     }
 
     .nav-link:active{
-      transform: translateY(85px);
+      transform: translateY(350px);
+      /* transform: translateY(66px); */
     }
 
     .button{
