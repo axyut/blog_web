@@ -10,12 +10,12 @@
   }
 
   h1{
-    font-size: 30px;
+    font-size: 29px;
     font-family: 'Open Sans';
     color: #baded0;
   }
   h2{
-    font-size: 24px;
+    font-size: 23px;
     font-family: 'Open Sans';
     color:#cfc0b0 ;
   }
@@ -381,5 +381,5 @@
 
 
   p{
-    font-size:larger;
+    font-size: 19px;
   }
