@@ -165,9 +165,20 @@
     } */
   
     .logo {
-      display: none;
+      justify-content: center;
+      margin-bottom: 0rem;
+      border-radius: 10%;
+      filter: grayscale(0%) opacity(1);
+      background: radial-gradient(#010102,#1f1f29);
+      color: var(--text-secondary);
     }
-  
+    a#numberOne.nav-link{
+      background: none;
+    }
+    a#numberOne.nav-link:focus{
+      transform: none
+    }
+
     .navbar-nav {
       flex-direction: row;
     }
@@ -177,7 +188,7 @@
       margin-bottom: 0rem;
       border-radius: 50%;
       filter: grayscale(0%) opacity(1);
-      background: radial-gradient(#1a1a20,#23232e);
+      background: radial-gradient(#16161b,#23232e);
       color: var(--text-secondary);
     }
     
