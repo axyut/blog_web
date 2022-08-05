@@ -145,6 +145,19 @@
   
   /* Small screens */
   @media only screen and (max-width: 600px) {
+      
+    h1#blogh1 {
+      padding-top: 3.5rem;
+    }
+    .searchArea{
+      margin-top: -2.2rem;
+      margin-left: -17px;
+      text-align: center;
+      border-bottom: #141418;
+      width:93%;
+      position:fixed;
+      height: 3.5rem;
+    }
     .media-element h2{
       height:auto;
     }
@@ -239,6 +252,15 @@
   
   /* Large screens */
   @media only screen and (min-width: 600px) {
+      
+    .searchArea{
+      position:absolute;
+      margin-top: -1%;
+      margin-left: 52%;
+      margin-bottom: 2rem;
+      width: 30rem;
+    }
+
     .media-element h2{
       height:6rem;
     }
@@ -405,4 +427,15 @@
     font-size: 13px;
     font-weight: bold;
     font-family:monospace;
+  }
+
+  .searchArea{
+    height: 3.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: "Lato", sans-serif;
+    border: 0;
+    color: #fff;
+    background-color: #2f2f2f;
+    font-size: 19px;
   }
