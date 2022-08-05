@@ -397,6 +397,8 @@
 
   p{
     font-size: 19px;
+    /* white-space: pre-line;
+    white-space:pre-wrap; */
   }
 
   .sideways{
