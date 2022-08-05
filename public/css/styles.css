@@ -167,9 +167,9 @@
     .logo {
       justify-content: center;
       margin-bottom: 0rem;
-      border-radius: 10%;
+      border-radius: 8%;
       filter: grayscale(0%) opacity(1);
-      background: radial-gradient(#010102,#1f1f29);
+      background: radial-gradient(#12121e,#101015);
       color: var(--text-secondary);
     }
     a#numberOne.nav-link{
@@ -311,8 +311,9 @@
     margin-left: 0rem;
     border-radius: 8px;
   }
+  
   .logoee {
-    font-weight: normal;
+    font-weight: 400;
     margin-bottom: 1rem;
     color: var(--text-secondary);
     background: var(--bg-secondary);
