@@ -145,6 +145,13 @@
   
   /* Small screens */
   @media only screen and (max-width: 600px) {
+    /* .pagination{
+      width: max-content;
+    } */
+    .pagination ul{
+      width: 100%;
+      background: #121216;
+    }
       
     h1#blogh1 {
       padding-top: 3.5rem;
@@ -252,6 +259,10 @@
   
   /* Large screens */
   @media only screen and (min-width: 600px) {
+    .pagination ul{
+      width: max-content;
+      background: #23232d;
+    }
       
     .searchArea{
       position:absolute;
@@ -444,15 +455,13 @@
   /*Pagination*/
  
   .pagination{
-    display: flex;
+    display:flex;
     align-items: center;
     justify-content: center;
   }
   .pagination ul{
-    width: max-content;
     display: flex;
     flex-wrap: wrap;
-    background: rgb(56, 52, 67);
     padding: 4px;
     border-radius: 5px;
     box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
