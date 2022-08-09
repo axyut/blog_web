@@ -9,6 +9,19 @@
     --transition-speed: 600ms;
   }
 
+  .styleAnchor{
+    margin-left: 5px;
+    background: #141418 !important;
+    padding: 3px;
+    text-align: center;
+    border-radius: 2px;
+    color:#baded0;
+    font-weight: bold;
+    font-size: 10px;
+    text-decoration:none;
+    
+  }
+
   h1{
     font-size: 29px;
     font-family: 'Open Sans';
@@ -471,13 +484,18 @@
     background-color: #19191f ;
     font-size: 19px;
     position: absolute;
-
+    cursor:grab;
   }
   hr{
     border-top: none;
-    border: 1px solid  #fff ;
+    border: 1px solid#baded0 ;
   }
-
+  #searchAnchor{
+    display: flex;
+    align-items:center;
+    color: #cfc0b0;
+    text-decoration: none;
+  }
 
   /*Pagination*/
  

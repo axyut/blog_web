@@ -19,6 +19,7 @@
                 body: JSON.stringify({payload: e.value})
             }).then(res => res.json()).then(data =>{
                 let payload = data.payload;
+                console.log(payload);
                 searchResults.innerHTML= '';
                 if(payload.length <1){
                     searchResults.innerHTML= '<p>Sorry. Nothing found.</p>';
@@ -26,7 +27,7 @@
                 }
                 payload.forEach((item, index) => {
                     if(index >0) searchResults.innerHTML += '<hr>';
-                    searchResults.innerHTML += `<p>${item.title}`;
+                    searchResults.innerHTML += `<a id="searchAnchor" href="/posts/${item._id}"><p>${item.title}</p></a>`;
                 });
             });
             return;
@@ -45,7 +46,7 @@
     <h2><%=post.title%></h2>
     <p>
     <%=post.content.substring(0, 440) + " ..."%>
-    <a href="/posts/<%=post._id%>">Read More</a>
+    <a class="styleAnchor" href="/posts/<%=post._id%>">Read More</a>
     </p>
     
     
