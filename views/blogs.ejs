@@ -6,7 +6,7 @@
 <script>
     function sendData(e){
         const searchResults = document.getElementById('searchResults');
-        let match = e.value.match(/^[a-zA-Z ]*/);
+        let match = e.value.match(/^[ a-zA-Z ]*/);
         let match2 = e.value.match(/\s*/);
         if(match2[0] === e.value){
             searchResults.innerHTML= '';
