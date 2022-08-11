@@ -81,7 +81,7 @@ app.get("/publish", function(req, res){
 
 app.post("/getPosts", async function(req,res){
   let payload = req.body.payload.trim();
-  let search = await Post.find({title: {$regex: new RegExp('^'+payload+'.*','i')}}).exec();
+  let search = await Post.find({title: {$regex: new RegExp(payload+'.*','i')}}).exec();
   //Limit our search result to 10
   search = search.slice(0,10);
   res.send({payload: search});
