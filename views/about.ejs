@@ -1,9 +1,73 @@
 <%- include("partials/header"); -%> 
 
-<h1>🗿 We're currently working on this page.</h1>
-<p>page_name:about</p>
-<p><%= aContent %></p>
+<h1>About Website</h1>
+<p >
+    I'm currently working on this website, it is completely written by me in Nodejs and NoSQL
+    Database Mongodb is integrated to store content. This website is live on the internet on 
+    Heroku app and stored in Mongodb Atlas, AWS cluster. It is not in production state.
+</p>
+
+<h2>1. Vertical Nav-bar</h2>
+<p>Fixed at the left side of the screen for large devices and bottom side for mobile 
+	devices, this nav-bar shows fives icons, the icons are duotone svg icons , all the icons
+	are put inside anchor tags where they redirect you to individual pages. For this navbar to 
+	appear in all other pages, a header ejs file was made along with other ejs pages, this 
+	header file contains nav-bar and other items that need to appear in every single page like
+	fonts, scripts etc. All fonts are imported from fonts.googleapis from google.<br>
+	Want to make it exactly as it looks?  <a href="https://youtu.be/biOMz4puGt8"> Visit </a>
+</p>
+<h2>2. Home Page</h2>
+<p>Popular Blogs section of this page is horizontal scrolling list of contents, the 
+	contents comes from a collection of database which is stored in Mongodb Atlas in the cloud.
+	Side scrolling functionality was added, to add other sections like Latest Blogs, below Popular 
+	section in the future. <br>
+	Want to make it exactly as it is?  <a href="https://youtu.be/3yfswsnD2sw">Visit</a> 
+</p>
+<h2>3. Blogs Page</h2>
+<p>Similar to the home page, all the blogs in this website comes from a collection of database
+	stored in Mongodb Atlas in the cloud but are listed vertically just on the main body. 
+	In addtion to that, a search funtionality is added to search through all the blogs listed in 
+	the collection of Mongodb, it is AJAX Live Data Search and on click of the result it takes 
+	you to that particular blog you want to read.<br>
+	Want to make it exactly how it looks?  <a href="https://youtu.be/991fdnSllcw">Visit</a> 
+</p>
+<h2>4. All Page</h2>
+<p>There's nothing here and I don't know if I need this page or not, suggest what should be
+	in this page. Get in touch through Publish page if you have any great ideas to put here.
+</p>
+<h2>5. Publish Page</h2>
+<p>You have something great and want to show it to the world? No worries, Contact me here,
+	send your articles, research or anything. I'll put it here as long as you want to and you
+	have all the credit. The backend of this page is very powerful and secured. It has got a 
+	mailing functionality whose data comes from input of the form. Using Node-mailer module, 
+	email messages can be sent very securely in no time. On top of that it supports OAuth2 
+	authentication.<br>
+	Want to make it exactly how it is?  <a href="https://youtu.be/-rcRf7yswfM">Visit</a>
+</p>
+<h2>6. Post page</h2>
+<p>Simply click Read More at the bottom line of any blog then it opens a full page with only 
+	content. It is called the post page or I named it so. You're redirected here with a id that
+	every post has, it is just showing the content of that id in the database and the page is 
+	the same just the content is changing.
+</p>
+<h2>7. app.js</h2>
+<p>It is a Nodejs Backend App that has control over whole website and webpages.
+	All the pages redirected to by icons in nav-bar are ejs pages which have a header and footer
+	page, header page is the top of this app, it contains Html, Head and starting of Body section
+	and footer page ends both Html and Body. Between both of this are all the ejs pages like 
+	Home, Blogs, All, About and Publish. This website is layered for it to be easy to work so 
+	that not all pages need to have the Header content like nav-bar written all over again, we
+	can just declare something similar to <header_page_elements> and <footer_page_elements> in
+	new pages.
+</p>
+
+<h2>Source Code </h2>
+<p>Anybody who wants to make a website similar to this can view source code though the code is 
+    not well written. This is not even my code at this point it's just mix of numbers of code I've 
+    found on the internet, so feel free to copy it. 
+    <br>
+    NOTE*Until the webiste is in development, the provided link will not work.
+    <a href="">github</a>
+</p>
 
 <%- include("partials/footer"); -%>
-
-

@@ -68,7 +68,7 @@ app.get("/all", function(req,res){
 });
 
 app.get("/about", function(req,res){
-  res.render("about", {aContent: allContent});
+  res.render("about");
 });
 
 app.get("/compose", function(req,res){
