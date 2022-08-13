@@ -38,7 +38,8 @@ mongoose.connect("mongodb+srv://axyut:inGcasEDtBrIiJEb@cluster0.zoxas8a.mongodb.
 
 const postSchema = {
   title: String,
-  content: String
+  content: String,
+  img: String
 };
 const Post = mongoose.model("Post", postSchema);
 const Home = mongoose.model("Home", postSchema);
@@ -58,7 +59,7 @@ app.get("/blogs", function(req,res){
   Post.find({}, function(err, posts){
     res.render("blogs", {
       blogContent: blogContent,
-      posts: posts
+      posts: posts,
       });
   });
 });
@@ -150,7 +151,8 @@ app.post("/composeblogs", function(req, res){
 
     const post = new Post({
       title: req.body.postTitle,
-      content: req.body.postBody
+      content: req.body.postBody,
+      img: req.body.imgsrc
     });
 
     post.save(function(err){
@@ -165,7 +167,8 @@ app.post("/composehome", function(req,res){
 
   const home = new Home({
     title: req.body.postTitle,
-    content: req.body.postBody
+    content: req.body.postBody,
+    img: req.body.imgsrc
   });
 
   home.save(function(err){
@@ -183,7 +186,8 @@ app.get("/posts/:postId", function(req, res){
     Post.findOne({_id: requestedPostId}, function(err, post){
       res.render("post", {
         title: post.title,
-        content: post.content
+        img: post.img,
+        content: post.content,
       });
     });
   
@@ -197,6 +201,7 @@ app.get("/post/:homeId", function(req, res){
     Home.findOne({_id: requestedHomeId}, function(err, home){
       res.render("post", {
         title: home.title,
+        img: home.img,
         content: home.content
       });
     });

@@ -158,6 +158,28 @@
   
   /* Small screens */
   @media only screen and (max-width: 600px) {
+    
+    /* for ad at top of posts increse height */
+    #divright{
+      width: 100%;
+      background-color: #e9e9e9;
+      height: 0rem;
+    
+    }
+
+    #blogimg{
+      width: 100%;
+      height: 200px;
+      float:left; 
+      margin-right: 10px; 
+      margin-bottom: 15px; 
+      margin-top: 15px;
+    }
+    #homeimg{
+      width: 100%;
+      height: 200px;
+    }
+
     /* .pagination{
       width: max-content;
     } */
@@ -275,10 +297,42 @@
     .media-scroller {
       grid-auto-columns: 100%;
     }
+
+
   }
   
   /* Large screens */
   @media only screen and (min-width: 600px) {
+
+      
+    #divleft{
+      width: 25%;
+      background-color: #23232e;
+      float: left;
+    }
+    #divright{
+      width: 25%;
+      background-color: #23232e;
+      float: right;
+    }
+    #middle{
+      width: 48%;
+      margin: 0 auto;
+    }
+
+    #blogimg{
+      width: 220px;
+      height: 150px;
+      float:left; 
+      margin-right: 20px; 
+      margin-bottom: 5px; 
+      margin-top: 15px;
+    }
+    #homeimg{
+      width: 100%;
+      height: auto;
+    }
+
     .pagination ul{
       width: max-content;
       background: #23232d;
@@ -300,7 +354,10 @@
     }
 
     .media-element h2{
-      height:6rem;
+      height:5rem;
+    }
+    .media-element p{
+      height: 10rem;
     }
 
     .media-scroller::-webkit-scrollbar {
@@ -563,4 +620,13 @@
   .pagination ul li:last-child:hover{
     color: rgb(54, 49, 49);
     background: #cfc0b0 ;
+  }
+/* 
+  #bloged{
+    margin-left: 18rem;
+    margin-right: 20rem;
+  } */
+
+  #postimg{
+    width: 100%;
   }

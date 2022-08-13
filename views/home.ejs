@@ -8,9 +8,10 @@
 <%  homes.forEach(function(home){ %>
     <div class="media-element">
     <h2><%=home.title.substring(0, 130)%></h2>
+    <img id="homeimg" src="<%=home.img%>" alt="<%=home.title%>" >
     <p class="title">
-    <%=home.content.substring(0, 560) + " ..."%>
-    <a class="styleAnchor" href="/post/<%=home._id%>">Read More</a>
+        <%=home.content.substring(0, 240) + "..."%>
+        <a class="styleAnchor" href="/post/<%=home._id%>">Read More</a>
     </p>
     </div>
     
