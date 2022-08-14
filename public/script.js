@@ -1,6 +1,6 @@
 // selecting required element
 const element = document.querySelector(".pagination ul");
-let totalPages = 5;
+let totalPages = 10;
 let page = 1;
 
 //calling function with passing parameters and adding inside element which is ul tag

@@ -1,8 +1,32 @@
 <%- include("partials/header"); -%> 
-<input class="searchArea" onkeyup="sendData(this)" type="text" name="" id="search-box" placeholder="Search..." />
-<section id="searchResults">
 
-</section>
+<input class="searchArea" onkeyup="sendData(this)" type="text" name="" id="search-box" placeholder="Search..." autofocus/>
+<section id="searchResults"></section>
+
+<h1 id="blogh1">All the Blogs at one place.</h1>
+<p><%= blogContent %></p>
+<div class="trail">
+<% let start = 0 %>
+<% let end = 20 %>
+<% posts = posts.slice(start,end); %>
+
+<%  posts.forEach(function(post){ %>
+    <img id="blogimg" src="<%=post.img%>" alt="<%=post.title%>" >
+
+    <h2><%=post.title%></h2>
+    <p>
+    <%=post.content.substring(0, 440) + " ..."%>
+    <a class="styleAnchor" href="/posts/<%=post._id%>">Read More</a>
+    </p>
+    
+    
+<% }) %>
+</div>
+<div class="pagination">
+    <ul> <!--pages or li are comes from javascript --> </ul>
+</div>
+<script src="script.js"></script>
+
 <script>
     function sendData(e){
         const searchResults = document.getElementById('searchResults');
@@ -36,27 +60,6 @@
     }
 </script>
 
-<h1 id="blogh1">All the Blogs at one place.</h1>
-
-<p><%= blogContent %></p>
-
-
-<%  posts.forEach(function(post){ %>
-    <img id="blogimg" src="<%=post.img%>" alt="<%=post.title%>" >
-
-    <h2><%=post.title%></h2>
-    <p>
-    <%=post.content.substring(0, 440) + " ..."%>
-    <a class="styleAnchor" href="/posts/<%=post._id%>">Read More</a>
-    </p>
-    
-    
-<% }) %>
-    
-<div class="pagination">
-    <ul> <!--pages or li are comes from javascript --> </ul>
-</div>
-<script src="script.js"></script>
 
 <%- include("partials/footer"); -%>
 

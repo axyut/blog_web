@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const { redirect } = require("express/lib/response");
-const { lte, result } = require("lodash");
+const { lte, result, parseInt } = require("lodash");
 const mongoose = require("mongoose");
 
 // Mailing ##
