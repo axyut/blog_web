@@ -1,7 +1,7 @@
 
 <%- include("partials/header"); -%>
 
-<h1 class="section-title">Latest Popular Blogs</h1>
+<h1 class="section-title">Latest Blogs</h1>
 
 
 <div class="media-scroller snaps-inline" id="container">
@@ -30,5 +30,22 @@
 6. search for whole title in blog search, currently searching only 1st word of title in database
 -->
 
+<h1 class="section-title">Popular Blogs</h1>
+
+
+<div class="media-scroller snaps-inline" id="container">
+<%  pops.forEach(function(pop){ %>
+    <div class="media-element">
+    <h2><%=pop.title.substring(0, 130)%></h2>
+    <img id="homeimg" src="<%=pop.img%>" alt="<%=pop.title%>" >
+    <p class="title">
+        <%=pop.content.substring(0, 240) + "..."%>
+        <a class="styleAnchor" href="/post/<%=pop._id%>">Read More</a>
+    </p>
+    </div>
+    
+<% }) %>
+    
+</div>
 
 <%- include("partials/footer"); -%>

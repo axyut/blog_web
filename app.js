@@ -47,8 +47,11 @@ const Home = mongoose.model("Home", postSchema);
 app.get("/", function(req,res){
 
   Home.find({}, function(err, homes){
+    latest = homes.slice(0, 5);
+    popular = homes.slice(-5);
     res.render("home", {
-      homes: homes
+      homes: latest,
+      pops: popular
     });
   });
   
