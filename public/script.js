@@ -1,3 +1,5 @@
+
+
 // selecting required element
 const element = document.querySelector(".pagination ul");
 let totalPages = 10;
@@ -62,4 +64,37 @@ function createPagination(totalPages, page){
   }
   element.innerHTML = liTag; //add li tag inside ul tag
   return liTag; //reurn the li tag
+}
+
+
+
+function sendData(e){
+  const searchResults = document.getElementById('searchResults');
+  let match = e.value.match(/^[ a-zA-Z ]*/);
+  let match2 = e.value.match(/\s*/);
+  if(match2[0] === e.value){
+      searchResults.innerHTML= '';
+      return;
+  }
+  if(match[0] === e.value){
+      fetch('getPosts', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({payload: e.value})
+      }).then(res => res.json()).then(data =>{
+          let payload = data.payload;
+          console.log(payload);
+          searchResults.innerHTML= '';
+          if(payload.length <1){
+              searchResults.innerHTML= '<p>Sorry. Nothing found.</p>';
+              return;
+          }
+          payload.forEach((item, index) => {
+              if(index >0) searchResults.innerHTML += '<hr>';
+              searchResults.innerHTML += `<a id="searchAnchor" href="/posts/${item._id}"><p>${item.title}</p></a>`;
+          });
+      });
+      return;
+  }
+  searchResults.innerHTML= '';
 }
