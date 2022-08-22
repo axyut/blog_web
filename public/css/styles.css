@@ -298,13 +298,27 @@
       grid-auto-columns: 100%;
     }
 
-
+    #publishTitle{
+      width: 100%;
+      height: 4%;
+    }
+    #publishBody{
+      width: 100%;
+      height: 18%;
+    }
   }
   
   /* Large screens */
   @media only screen and (min-width: 600px) {
 
-      
+    #publishTitle{
+      width: 41rem;
+      height: 4%;
+    }
+    #publishBody{
+      width: 41rem;
+      height: 18%;
+    }
     #divleft{
       width: 25%;
       background-color: #23232e;

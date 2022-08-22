@@ -1,16 +1,15 @@
 <%- include("partials/header"); -%>
 
 
-<h2>Feature your Blog / Contact </h2>
-
+<h1>Contact Me</h1>
+<p>Feature your Articles, Findings and Research works here or<br>simply contact me if you've something to share.</p>
 <form action="/publish" method="post">
     <input class="logoe" type="text" name="name" placeholder="*Full Name" required>
-    <br>
     <input class="logoe" type="text" name="email" placeholder="*Email Address" required>
     <br>
-    <textarea class="logoee" name="postTitle" cols="34" rows="5" required> Title: </textarea>
+    <textarea class="logoee" id="publishTitle" name="postTitle" rows="5" required> Title: </textarea>
     <br>
-    <textarea class="logoee" name="postBody" cols="34" rows="17" aria-placeholder="Body" required> Body:</textarea>
+    <textarea class="logoee" id="publishBody" name="postBody" rows="17" aria-placeholder="Body" required> Body:</textarea>
     <br>
     <button class="button" type="submit" name="button" >SEND</button>
 </form>
