@@ -57,13 +57,41 @@ app.get("/", function(req,res){
   
 });
 
+// PAGINATION 
+const resultsPerPage = 3;
+
 app.get("/blogs", function(req,res){
   
   Post.find({}, function(err, posts){
-    res.render("blogs", {
-      blogContent: blogContent,
-      posts: posts,
+    if(err) throw err;
+    const numOfResults = posts.length;
+    const numberOfPages = Math.ceil(numOfResults / resultsPerPage);
+    let page = req.query.page ? Number(req.query.page) : 1;
+    if(page > numberOfPages){
+        res.redirect(`/blogs?page=${encodeURIComponent(numberOfPages)}`);
+    }else if(page < 1){
+        res.redirect(`/blogs?page=${encodeURIComponent('1')}`);
+    }
+    //Determine the LIMIT to get relevant number of posts
+    const startingLimit = (page - 1) * resultsPerPage;
+    const endingLimit = startingLimit + resultsPerPage;
+    posts = posts.slice(startingLimit, endingLimit);
+
+    let iterator = (page - 2) < 1 ? 1 : page-2;
+    let endingLink = (iterator + 4) <= numberOfPages ? (iterator + 4) : page + (numberOfPages - page);
+    if(endingLink < (page + 1)){
+        iterator -= (page + 1) - numberOfPages;
+    }
+    
+      res.render("blogs", {
+        blogContent: blogContent,
+        posts: posts,
+        page: page,
+        iterator: iterator,
+        endingLink: endingLink,
+        numberOfPages: numberOfPages,
       });
+    
   });
 });
 
