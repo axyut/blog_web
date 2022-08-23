@@ -3,8 +3,10 @@
 <input class="searchArea" onkeyup="sendData(this)" type="text" name="" id="search-box" placeholder="Search..." autofocus/>
 <section id="searchResults"></section>
 
-<h1 id="blogh1">All the Articles at one place.</h1>
-<p><%= blogContent %></p>
+<h1 id="blogh1">Browse all Articles.</h1>
+<% if(page == 1) { %> 
+    <p><%= blogContent %></p>
+<% } %>
 
 <div class="trail">
 

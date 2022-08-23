@@ -22,7 +22,7 @@ const OAuth2Client = new google.auth.OAuth2(clientId, clientSecret, Redirect_URL
 OAuth2Client.setCredentials( {refresh_token: refreshToken});
 
 const allContent = "Adios!";
-const blogContent = "Carry On with the reading.   ";
+const blogContent = "All the Articles ever published on the website are listed here in a structured manner. Carry On with the reading.   ";
 
 const app = express();
 app.use(express.json());
@@ -58,7 +58,7 @@ app.get("/", function(req,res){
 });
 
 // PAGINATION 
-const resultsPerPage = 3;
+const resultsPerPage = 5;
 
 app.get("/blogs", function(req,res){
   
