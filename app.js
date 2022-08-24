@@ -7,6 +7,7 @@ const _ = require("lodash");
 const { redirect } = require("express/lib/response");
 const { lte, result, parseInt } = require("lodash");
 const mongoose = require("mongoose");
+const favicon = require('serve-favicon');
 
 // Mailing ##
 const nodemailer= require("nodemailer");
@@ -29,6 +30,10 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+
+// favicon
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
 
 //let newposts=[];
 //using mongoose to store blog in local database
