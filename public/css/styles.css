@@ -270,8 +270,8 @@
       font-size: 0.8rem;
       text-align:start;
       font: inherit;
-      font-family: cursive;
-      color: #b9e9d6;
+      font-family: 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+      color: #cfc0b0;
       background-color: #141418;
       background: linear-gradient(transparent,#2c3f38e6) ;
       
@@ -309,10 +309,23 @@
     .logoe{
       width: 100%;
     }
+    .cardHolder{
+      display:block;
+    }
+    .card{
+      width: 100%;
+      height: min-content;
+    }
+    .card-paragrapgh{
+      height: auto;
+    }
   }
   
   /* Large screens */
   @media only screen and (min-width: 600px) {
+    .card-paragrapgh{
+      height: 350px;
+    }
 
     #publishTitle{
       width: 41rem;
@@ -431,7 +444,17 @@
     .media-scroller {
       grid-auto-columns: 39%;
     }
+    .cardHolder{
+      display:flex;
+    }
+    .card{
+      width: 33%;
+      height: 400px;
+      margin: 10px;
+      margin-bottom: 70px;
+    }
   }
+
   
   
   .logoe {
@@ -624,5 +647,32 @@
 
   #postimg{
     width: 100%;
+  }
+
+  /*Cards in Publish Page*/
+  .cardHolder{
+    
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .card h2{
+    text-align: center;
+    height: 50px;
+  }
+  .card p{
+    border-radius: 10px;
+    margin: 0;
+    padding: 4px;
+  }
+  .card{
+    margin-top: 40px;
+    background:var(--bg-secondary) ;
+    padding: 0;
+  }
+  .card-paragrapgh{
+    border-radius: 10px;
+    background:var(--bg-primary) ;
+    padding: 10px;
+    overflow-y: hidden;
   }
   

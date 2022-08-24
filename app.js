@@ -17,6 +17,7 @@ const Oauth2 = google.auth.OAuth2;
 const Redirect_URL = 'https://developers.google.com/oauthplayground'
 const clientId = '51365520624-m3eih0krlole7o6mfr0e6o9tioqoe1p5.apps.googleusercontent.com'
 const clientSecret= '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'
+// CHANGE EVERY WEEK
 const refreshToken= '1//04pvtFPUeglbsCgYIARAAGAQSNwF-L9Ir9JTTnxA4UokNLrqFsYn5VcRVXRL5spo2I0jvUgm9cFmswftNZsrKG-xtmZvzJbIXC6g'
 
 const OAuth2Client = new google.auth.OAuth2(clientId, clientSecret, Redirect_URL )
@@ -100,12 +101,12 @@ app.get("/blogs", function(req,res){
   });
 });
 
-app.get("/all", function(req,res){
-  res.render("all", {allContent: allContent });
+app.get("/elect", function(req,res){
+  res.render("elect", {allContent: allContent });
 });
 
-app.get("/about", function(req,res){
-  res.render("about");
+app.get("/elected", function(req,res){
+  res.render("elected");
 });
 
 app.get("/compose", function(req,res){
@@ -114,6 +115,18 @@ app.get("/compose", function(req,res){
 
 app.get("/publish", function(req, res){
   res.render("publish");
+});
+
+app.get("/about-privacy", function(req,res){
+  res.render("aboutprivacy");
+});
+
+app.get("/about-terms", function(req,res){
+  res.render("aboutterms");
+});
+
+app.get("/about-website", function(req,res){
+  res.render("aboutwebsite");
 });
 
 app.post("/getPosts", async function(req,res){

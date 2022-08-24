@@ -1,7 +1,7 @@
 <%- include("partials/header"); -%>
 
 
-<h1>Contact Me</h1>
+<h1>Contact Us</h1>
 <p>Feature your Articles, Findings and Research works here or<br>simply contact me if you've something to share.</p>
 <form action="/publish" method="post">
     <input class="logoe" type="text" name="name" placeholder="*Full Name" required>
@@ -13,5 +13,35 @@
     <br>
     <button class="button" type="submit" name="button" >SEND</button>
 </form>
+
+
+<section class="cardHolder">
+    <div class="card">
+        <h2 >About Website</h2>
+        <div class="card-paragrapgh">
+<p style="white-space:pre-wrap;" >This website is completely written in Nodejs and NoSQL Database Mongodb is integrated to store content. This website is live on the internet on Heroku app and stored in Mongodb Atlas, AWS cluster. It is not in production state.
+
+All the pages redirected to by icons in nav-bar are ejs pages which have a header and footer page, header page is the top of this app, it contains Html, Head and starting of Body section...
+            </p>
+        </div><a class="styleAnchor" href="/about-website">Read All</a>
+    </div>
+    <div class="card">
+        <h2 >Terms and Conditions</h2>
+        <div class="card-paragrapgh">
+<p style="white-space:pre-wrap;">These terms and conditions outline the rules and regulations for the use of TGIP's Website. By accessing this website we assume you accept these terms and conditions. Do not continue to use TGIP if you do not agree to take all of the terms and conditions stated on this page.
+
+The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: ... </p>
+        </div><a class="styleAnchor" href="/about-terms">Read All</a>
+    </div>
+    <div class="card">
+        <h2 >Privacy Policy</h2>
+        <div class="card-paragrapgh">
+<p style="white-space:pre-wrap;">At TGIP one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by TGIP and how we use it. If you have additional questions or require more information about our Privacy Policy, please Read all and then Contact us.
+
+This Privacy Policy applies only to our online activities and is valid for visitors to our website TGIP. </p>
+        </div><a class="styleAnchor" href="/about-privacy">Read All</a>
+    </div>
+    
+</section>
 
 <%- include("partials/footer"); -%>
