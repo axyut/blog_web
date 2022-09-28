@@ -1,5 +1,6 @@
 //jshint esversion:6
 
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -7,18 +8,18 @@ const _ = require("lodash");
 const { redirect } = require("express/lib/response");
 const { lte, result, parseInt } = require("lodash");
 const mongoose = require("mongoose");
-// const favicon = require('serve-favicon');
+
 
 // Mailing ##
 const nodemailer= require("nodemailer");
 const { google } = require("googleapis");
 const Oauth2 = google.auth.OAuth2;
 
-const Redirect_URL = 'https://developers.google.com/oauthplayground'
-const clientId = '51365520624-m3eih0krlole7o6mfr0e6o9tioqoe1p5.apps.googleusercontent.com'
-const clientSecret= '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'
+const Redirect_URL = process.env.REDIRECT_URL;
+const clientId = process.env.CLIENT_ID;
+const clientSecret= process.env.CLIENT_SECRET;
 // CHANGE EVERY WEEK
-const refreshToken= '1//04pvtFPUeglbsCgYIARAAGAQSNwF-L9Ir9JTTnxA4UokNLrqFsYn5VcRVXRL5spo2I0jvUgm9cFmswftNZsrKG-xtmZvzJbIXC6g'
+const refreshToken= process.env.REFRESH_TOKEN;
 
 const OAuth2Client = new google.auth.OAuth2(clientId, clientSecret, Redirect_URL )
 OAuth2Client.setCredentials( {refresh_token: refreshToken});
@@ -32,15 +33,13 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-// // favicon
-// app.use(favicon(__dirname + '/public/images/favicon.ico'));
-
 
 //let newposts=[];
 //using mongoose to store blog in local database
 //mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
 // use mongoose to store in mongo atlas cloud database
-mongoose.connect("mongodb+srv://axyut:inGcasEDtBrIiJEb@cluster0.zoxas8a.mongodb.net/blogDB", {useNewUrlParser: true});
+
+mongoose.connect(process.env.MONGO_CONNECT, {useNewUrlParser: true});
 
 const postSchema = {
   title: String,
@@ -151,7 +150,6 @@ app.post("/publish", function(req,res){
       <li>Full Name: ${req.body.name}</li>
       <li>Email: ${req.body.email}</li>
     </ul>
-    <h2>Body</h2>
     <h3>${req.body.postBody}</h3>
   `;
 
@@ -166,7 +164,7 @@ app.post("/publish", function(req,res){
         service: 'mail',
         auth:{
           type: 'OAuth2',
-          user: 'kawuichan@gmail.com',
+          user: process.env.USER_SEND,
           clientId: clientId,
           clientSecret: clientSecret,
           refreshToken: refreshToken,
@@ -175,8 +173,8 @@ app.post("/publish", function(req,res){
       })
 
       const mailOptions = {
-        from: `${coming_post.fname} <kawuichan@gmail.com>`,
-        to: "aoogleak@gmail.com",
+        from: `${coming_post.fname} <${process.env.USER_GET}>`,
+        to: process.env.USER_GET,
         subject: coming_post.title,
         text: "Hello?", 
         html: output,
