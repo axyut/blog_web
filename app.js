@@ -6,14 +6,12 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const { redirect } = require("express/lib/response");
-const { lte, result, parseInt } = require("lodash");
 const mongoose = require("mongoose");
 
 
 // Mailing ##
 const nodemailer= require("nodemailer");
 const { google } = require("googleapis");
-const { Router } = require('express');
 const Oauth2 = google.auth.OAuth2;
 
 const Redirect_URL = process.env.REDIRECT_URL;
@@ -34,11 +32,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-
-//let newposts=[];
 //using mongoose to store blog in local database
 //mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
-// use mongoose to store in mongo atlas cloud database
 
 mongoose.connect(process.env.MONGO_CONNECT, {useNewUrlParser: true});
 
@@ -256,7 +251,6 @@ app.get("/post/:homeId", function(req, res){
   
 });
 
-
 //////// API section ///////////
 
 app.route("/api/posts")
@@ -267,7 +261,6 @@ app.route("/api/posts")
   })
 ;
 
-
 app.route("/api/homes")
   .get(function(req,res){
     Home.find(function(err, foundHomes){
@@ -275,9 +268,6 @@ app.route("/api/homes")
     });
   })
 ;
-
-
-
 
 
 app.listen(process.env.PORT || 3000, function(){
