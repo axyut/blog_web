@@ -35,7 +35,18 @@ app.use(express.static("public"));
 //using mongoose to store blog in local database
 //mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
 
-mongoose.connect(process.env.MONGO_CONNECT, {useNewUrlParser: true});
+
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_CONNECT, {useNewUrlParser: true});
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
+
 
 const postSchema = new mongoose.Schema( {
   title: String,
@@ -270,6 +281,9 @@ app.route("/api/homes")
 ;
 
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Server is runnig on heroku server or port 3000 in local server")
-});
+connectDB().then(() => {
+    app.listen(process.env.PORT || 3000, function(){
+		console.log("Server is runnig on heroku server or port 3000 in local server")
+	});
+})
+
