@@ -1,0 +1,184 @@
+{
+	"basics": {
+		"name": "Achyut Koirala",
+		"label": "Developer.",
+		"picture": "",
+		"email": "aoogleak@gmail.com",
+		"phone": "",
+		"website": "https://outrageous-dove-jewelry.cyclic.app/",
+		"summary": "Backend web applications developer, developing RESTful APIs",
+		"location": {
+			"address": "",
+			"postalCode": "",
+			"city": "Bharatpur",
+			"countryCode": "NP",
+			"region": ""
+		},
+		"profiles": [
+			{
+				"network": "Twitter",
+				"username": "achyut_koirala_",
+				"url": "https://twitter.com/achyut_koirala_"
+			},
+			{
+				"network": "LinkedIn",
+				"username": "axyut",
+				"url": "https://www.linkedin.com/in/axyut"
+			},
+			{
+				"network": "GitHub",
+				"username": "axyut",
+				"url": "https://www.github.com/axyut"
+			}
+		]
+	},
+	"work": [
+		{
+			"company": "A-CET Computers",
+			"position": "Computer Hardware Technician",
+			"location": "Bharatpur, Nepal",
+			"website": "https://www.facebook.com/acetservices.support",
+			"startDate": "May 2019",
+			"endDate": "Aug 2019",
+			"summary": "Role of Intern provided In-depth knowledge of hardware system design, troubleshooting computers in general, configuring Networks, and Backup and recovery of OS and File systems",
+			"highlights": [
+				"Troubleshooting of Desktops and other Computers",
+				"Installed and Recovered different Operating Systems",
+				"Customer discovery"
+			]
+		},
+
+		{
+			"company": "",
+			"position": "",
+			"location": "",
+			"website": "",
+			"startDate": "",
+			"endDate": "",
+			"summary": "",
+			"highlights": ["", ""]
+		}
+	],
+	"education": [
+		{
+			"institution": "Oxford College of Engineering and Management",
+			"area": "Science Stream",
+			"studyType": "High School Diploma",
+			"startDate": "November 2019",
+			"endDate": "Oct 2021",
+			"gpa": "3.53",
+			"courses": ["Computer Science", "Arduino Programming"]
+		},
+		{
+			"institution": "Institute of Science and Technology, Tribhuvan University",
+			"area": "Information Technology",
+			"studyType": "Bachelors",
+			"startDate": "February 2022",
+			"endDate": "2026",
+			"gpa": "",
+			"courses": []
+		}
+	],
+	"activities": [
+		{
+			"institution": "MERN Stack Web Development Bootcamp",
+			"position": "Participant",
+			"startDate": "January 2022",
+			"endDate": "March 2015"
+		}
+	],
+
+	"awards and certifications": [
+		{
+			"Certification Name": "Microsoft Certified: Azure Fundamentals",
+			"Issuing Organization": "Microsoft",
+			"Issue Date": "Feburary 2023",
+			"Expiration Date": "",
+			"Credential ID": "I603-7267",
+			"Credential URL": "https://www.credly.com/badges/fcf553be-73ce-4e10-b13e-9e9323044e8f/linked_in?t=rputvt"
+		},
+		{
+			"Certification Name": "Project Management Fundamentals",
+			"Issuing Organization": "IBM",
+			"Issue Date": "January 2023",
+			"Expiration Date": "",
+			"Credential ID": "",
+			"Credential URL": "https://www.credly.com/badges/01785103-0762-4d26-b49c-77fe471213ec/linked_in_profile"
+		},
+		{
+			"Certification Name": "API Penetration Testing - Certified",
+			"Issuing Organization": "APIsec University",
+			"Issue Date": "December 2022",
+			"Expiration Date": "",
+			"Credential ID": "",
+			"Credential URL": "https://www.credly.com/badges/f9ac9b33-8dd7-4ec9-bee4-7d6e7483613d/linked_in_profile"
+		},
+		{
+			"Certification Name": "Back End Development and APIs",
+			"Issuing Organization": "freeCodeCamp",
+			"Issue Date": "December 2022",
+			"Expiration Date": "",
+			"Credential ID": "",
+			"Credential URL": "https://freecodecamp.org/certification/axyut/back-end-development-and-apis"
+		},
+		{
+			"Certification Name": "Introduction to Computer Science",
+			"Issuing Organization": "CS50",
+			"Issue Date": "November 2022",
+			"Expiration Date": "",
+			"Credential ID": "",
+			"Credential URL": "https://cs50.harvard.edu/certificates/fa9e1dea-ba07-4381-a699-3ed8c07f5030"
+		},
+		{
+			"Certification Name": "AWS Cloud Practitioner Essentials",
+			"Issuing Organization": "Amazon Web Services (AWS)",
+			"Issue Date": "October 2022",
+			"Expiration Date": "",
+			"Credential ID": "",
+			"Credential URL": "https://1drv.ms/b/s!AhfaJ9fW6CZMh1QIbzKaIzaxzR7I?e=ihBbjK"
+		},
+		{
+			"Certification Name": "Network Defense Essentials (NDE)",
+			"Issuing Organization": "EC-Council",
+			"Issue Date": "October 2022",
+			"Expiration Date": "",
+			"Credential ID": "3683264270608",
+			"Credential URL": "https://1drv.ms/b/s!AhfaJ9fW6CZMh1JeYqI1pDFgdff5?e=5yecjx"
+		},
+		{
+			"Certification Name": "",
+			"Issuing Organization": "",
+			"Issue Date": "",
+			"Expiration Date": "",
+			"Credential ID": "",
+			"Credential URL": ""
+		}
+	],
+
+	"skills": [
+		{
+			"Tech skills": [
+				"Backend Web Development with Node.js and Go",
+				"Presentation, Project Management and Report Writing",
+				"Understanding of REST APIs, MongoDB and Web Security ",
+				"Basic Knowledge of Networking and Cloud Components",
+				"Troubleshooting Computers in Genera"
+			]
+		},
+		{ "soft skills": ["Communication with Client", "Public Speaking"] }
+	],
+
+	"projects and works": [
+		{
+			"name": "Porfolio Website",
+			"type": "Web Application",
+			"url": "https://outrageous-dove-jewelry.cyclic.app/",
+			"overview": "A Blog website for my projects and articles related to IT industry. It is written in Node.js and NoSQL database MongoDB is integrated as database. This website is live on the internet on Cyclic app and MongoDB Atlas, AWS cluster.",
+			"key takeways": "Pagination Function, Search-box Function, Mailing Function, Backend MongoDb database"
+		}
+	],
+	"volunteer": [],
+	"languages": [],
+	"interests": [],
+	"references": []
+}

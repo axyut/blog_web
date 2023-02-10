@@ -1,55 +1,47 @@
-
 <%- include("partials/header"); -%>
 
-<h1 class="section-title">Latest Articles<a class="styleAnchor" href="/api/homes">Get API</a></h1>
-
+<h1 class="section-title">
+	!!!
+	<!-- <a class="styleAnchor" href="/api/homes">Get API</a> -->
+</h1>
 
 <div class="media-scroller snaps-inline" id="container">
-<%  homes.forEach(function(home){ %>
-    <div class="media-element">
-    <h2><%=home.title.substring(0, 130)%></h2>
-    <img id="homeimg" src="<%=home.img%>" alt="<%=home.title%>" >
-    <p class="title">
-        <%=home.content.substring(0, 240) + "..."%>
-        <a class="styleAnchor" href="/post/<%=home._id%>">Read More</a>
-    </p>
-    </div>
-    
-<% }) %>
-    
+	<% homes.forEach(function(home){ %>
+	<div class="media-element">
+		<h2><%=home.title.substring(0, 130)%></h2>
+		<img id="homeimg" src="<%=home.img%>" alt="<%=home.title%>" />
+		<p class="title">
+			<%=home.content.substring(0, 240) + "..."%>
+			<a class="styleAnchor" href="/post/<%=home._id%>">Read More</a>
+		</p>
+	</div>
+
+	<% }) %>
 </div>
 
-<p class="sideways">  ⋘ scroll sideways ⋙  </p>
+<p class="sideways">⋘ scroll sideways ⋙</p>
 
- <!-- works to do  
+<!-- works to do  
 
 2. horizontal scrolling through mouse wheel in only latest blogs section/div outside of it, vertical scroll mouse wheel
 3. scroll sideways text integrated inside the scroll bar or scroll bar track
 
 -->
 
-<h1 class="section-title">Popular Articles</h1>
-
+<h1 class="section-title">My Story</h1>
 
 <div class="media-scroller snaps-inline" id="container">
-<%  pops.forEach(function(pop){ %>
-    <div class="media-element">
-    <h2><%=pop.title.substring(0, 130)%></h2>
-    <img id="homeimg" src="<%=pop.img%>" alt="<%=pop.title%>" >
-    <p class="title">
-        <%=pop.content.substring(0, 240) + "..."%>
-        <a class="styleAnchor" href="/post/<%=pop._id%>">Read More</a>
-    </p>
-    </div>
-    
-<% }) %>
-    
+	<% pops.forEach(function(pop){ %>
+	<div class="media-element">
+		<h2><%=pop.title.substring(0, 130)%></h2>
+		<img id="homeimg" src="<%=pop.img%>" alt="<%=pop.title%>" />
+		<p class="title">
+			<%=pop.content.substring(0, 240) + "..."%>
+			<a class="styleAnchor" href="/post/<%=pop._id%>">Read More</a>
+		</p>
+	</div>
+
+	<% }) %>
 </div>
-
-
-
-
-
-
 
 <%- include("partials/footer"); -%>
