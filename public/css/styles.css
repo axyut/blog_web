@@ -687,7 +687,7 @@ hr {
 	text-align: center;
 	border-radius: 3px;
 	color: #c1dfbd;
-
+	cursor: pointer;
 	font-weight: 500;
 	font-size: 15px;
 	text-decoration: none;

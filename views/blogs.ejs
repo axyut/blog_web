@@ -1,48 +1,55 @@
-<%- include("partials/header"); -%> 
+<%- include("partials/header"); -%>
 
-<input class="searchArea" onkeyup="sendData(this)" type="text" name="" id="search-box" placeholder="Search..." autofocus/>
+<input
+	class="searchArea"
+	onkeyup="sendData(this)"
+	type="text"
+	name=""
+	id="search-box"
+	placeholder="Search..."
+	autofocus
+/>
 <section id="searchResults"></section>
 
-<h1 id="blogh1">Browse all Articles. <a class="styleAnchor" href="/api/posts">Get API</a></h1>
-<% if(page == 1) { %> 
-    <p><%= blogContent %></p>
+<h1 id="blogh1">
+	Browse all Articles. <a class="styleAnchor" href="/api/posts">Get API</a>
+</h1>
+<% if(page == 1) { %>
+<p><%= blogContent %></p>
 <% } %>
 
 <div class="trail">
+	<% posts.forEach(function(post){ %>
+	<img id="blogimg" src="<%=post.img%>" alt="<%=post.title%>" />
 
-<%  posts.forEach(function(post){ %>
-    <img id="blogimg" src="<%=post.img%>" alt="<%=post.title%>" >
-
-    <h2><%=post.title%></h2>
-    <p>
-    <%=post.content.substring(0, 440) + " ..."%>
-    <a class="styleAnchor" href="/posts/<%=post._id%>">Read More</a>
-    </p>
-<% }) %>
-
+	<h2><%=post.title%></h2>
+	<p>
+		<%=post.content.substring(0, 440) + " ..."%>
+		<a class="styleAnchor" href="/posts/<%=post._id%>">Read More</a>
+	</p>
+	<% }) %>
 </div>
 
 <div class="pagination">
-
-<% if(page > 1) { %> 
-    <a class="styleAnchor" style="color: #cfc0b0 ;" href="/blogs?page=1">⫷</a>
-    <a class="pageItem"  href="/blogs?page=<%=page-1%>">Prev</a> 
-<% } %>
-<% for(let i = iterator; i <= endingLink; i++) { %>
-    <% if(i === page) { %>
-    <a class="pageItem" id="selectedLink" href="/blogs?page=<%=i%>"><%=i%></a>
-    <% continue; %>
-    <% } %>
-    <a class="pageItem" href="/blogs?page=<%=i%>"><%=i%></a>
-<% } %>
-<% if(page < numberOfPages) { %> 
-    <a class="pageItem" href="/blogs?page=<%=page+1%>">Next</a>
-    <a class="styleAnchor" style="color: #cfc0b0 ;" href="/blogs?page=<%=numberOfPages%>">⫸</a>
-<% } %>
-
+	<% if(page > 1) { %>
+	<a class="styleAnchor" style="color: #cfc0b0" href="/blogs?page=1">⫷</a>
+	<a class="pageItem" href="/blogs?page=<%=page-1%>">Prev</a>
+	<% } %> <% for(let i = iterator; i <= endingLink; i++) { %> <% if(i ===
+	page) { %>
+	<a class="pageItem" id="selectedLink" href="/blogs?page=<%=i%>"><%=i%></a>
+	<% continue; %> <% } %>
+	<a class="pageItem" href="/blogs?page=<%=i%>"><%=i%></a>
+	<% } %> <% if(page < numberOfPages) { %>
+	<a class="pageItem" href="/blogs?page=<%=page+1%>">Next</a>
+	<a
+		class="styleAnchor"
+		style="color: #cfc0b0"
+		href="/blogs?page=<%=numberOfPages%>"
+		>⫸</a
+	>
+	<% } %>
 </div>
 
 <script src="script.js"></script>
 <!-- ⇒⇨►▶▶▷▷⋙⫸  ⇦⇦◄◄◁◁◀◀⋘⩤⫷ -->
 <%- include("partials/footer"); -%>
-
