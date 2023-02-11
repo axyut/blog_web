@@ -12,7 +12,7 @@
 		<img id="homeimg" src="<%=home.img%>" alt="<%=home.title%>" />
 		<p class="title">
 			<%=home.content.substring(0, 240) + "..."%>
-			<a class="styleAnchor" href="/post/<%=home._id%>">Read More</a>
+			<a class="styleAnchor" href="/posts/<%=home._id%>">Read More</a>
 		</p>
 	</div>
 
@@ -32,12 +32,17 @@
 
 <div class="media-scroller snaps-inline" id="container">
 	<% pops.forEach(function(pop){ %>
-	<div class="media-element">
+	<div class="media-element" id="portText">
 		<h2><%=pop.title.substring(0, 130)%></h2>
-		<img id="homeimg" src="<%=pop.img%>" alt="<%=pop.title%>" />
+		<img
+			id="homeimg"
+			src="<%=pop.img%>"
+			alt="<%=pop.title%>"
+			style="display: none"
+		/>
 		<p class="title">
 			<%=pop.content.substring(0, 240) + "..."%>
-			<a class="styleAnchor" href="/post/<%=pop._id%>">Read More</a>
+			<a class="styleAnchor" href="/port/<%=pop._id%>">Read More</a>
 		</p>
 	</div>
 

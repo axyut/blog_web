@@ -27,7 +27,7 @@ h1 {
 }
 h2 {
 	font-size: 23px;
-	font-family: "Open Sans";
+	font-family: Georgia, "Times New Roman", Times, serif;
 	color: #cfc0b0;
 }
 
@@ -58,6 +58,12 @@ body::-webkit-scrollbar-thumb:hover {
 main {
 	margin-left: 6rem;
 	padding: 1rem;
+}
+
+.trail {
+	display: block;
+	height: auto;
+	margin-bottom: 4%;
 }
 
 .navbar {
@@ -329,17 +335,17 @@ main {
 		height: 18%;
 	}
 	#divleft {
-		width: 25%;
+		width: 22%;
 		background-color: #23232e;
 		float: left;
 	}
 	#divright {
-		width: 25%;
+		width: 22%;
 		background-color: #23232e;
 		float: right;
 	}
 	#middle {
-		width: 48%;
+		width: 54%;
 		margin: 0 auto;
 	}
 
@@ -378,6 +384,9 @@ main {
 
 	.media-element h2 {
 		height: 5rem;
+	}
+	#portText h2 {
+		height: 2rem;
 	}
 	.media-element p {
 		height: 10rem;
@@ -682,7 +691,7 @@ hr {
 }
 .simpleAnchor {
 	margin: 0;
-	background: #000000 !important;
+
 	padding: 0px;
 	text-align: center;
 	border-radius: 3px;

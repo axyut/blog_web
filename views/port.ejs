@@ -4,16 +4,24 @@
 <div id="divright"></div>
 <div class="wrapper" id="middle">
 	<div class="profile">
-		<script>
+		<!-- <script>
 			function newTab() {
 				window.open("/portfolio.json", "_blank");
 			}
-		</script>
+		</script> -->
 		<br />
 		<br />
+
 		<h2>Achyut Koirala</h2>
-		<p style="margin-top: -13px; font-size: 13px">I Work with APIs</p>
-		<br />
+		<p
+			style="
+				margin-top: -13px;
+				font-size: 12px;
+				font-family: 'Courier New', Courier, monospace;
+			"
+		>
+			I Work with APIs
+		</p>
 		!!! <br />
 		<p style="font-family: monospace; font-size: 18px">
 			Currently I'm a creator of code at Backend who lives off of 1's and
@@ -37,28 +45,51 @@
 			Besides development, I like to read well-documented contents and
 			books and On a personal note, I enjoy thunderstorms and rain,
 			sceneries of hills and mountains and love to wonder alone in the
-			thoughts of my own.
+			thoughts of my own.<br /><br />
+			Whether you're a potential employer, a collaborator, or just
+			someone, I invite you to enter the matrix of my mind, where I turn
+			bits into bytes and bytes into brilliance.
+
+			<br /><br /><br /><br /><img
+				src="/images/profile.jpg"
+				alt="achyut_koirala_"
+				height="120px"
+				width="110px"
+				style="object-fit: contain; border-radius: 12%"
+			/>
 			<br /><br />View my Resume at
-			<a onclick="newTab()" class="simpleAnchor"
+			<a class="simpleAnchor" href="/portfolio.json" target="_blank"
 				>https://resume.achyut.koirala/portfolio</a
 			>
 
 			<br />GitHub
-			<a class="simpleAnchor" href="https://github.com/axyut"
+			<a
+				class="simpleAnchor"
+				href="https://github.com/axyut"
+				target="_blank"
 				>https://github.com/axyut</a
 			>
 			<br />
 			LinkedIn
-			<a class="simpleAnchor" href=" https://linkedin.com/in/axyut">
+			<a
+				class="simpleAnchor"
+				href=" https://linkedin.com/in/axyut"
+				target="_blank"
+			>
 				https://linkedin.com/in/axyut</a
 			>
 			<br />
 			Twitter
-			<a class="simpleAnchor" href=" https://twitter.com/achyut_koirala_">
+			<a
+				class="simpleAnchor"
+				href=" https://twitter.com/achyut_koirala_"
+				target="_blank"
+			>
 				https://twitter.com/achyut_koirala_</a
 			>
 			<br /><a class="simpleAnchor" href="/publish">Contact Me</a>
 		</p>
+		<br />
 		<h1
 			style="
 				font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
@@ -68,11 +99,93 @@
 			Major Projects
 		</h1>
 		<ol>
-			<Li>Hackathon 2022</Li>
-			<li>Open Source Contributions</li>
-			<li>HacktoberFest 2022</li>
+			<li>
+				<a
+					href="https://web-production-9c42.up.railway.app/"
+					target="_blank"
+					class="simpleAnchor"
+					>Anonymous Chat Application</a
+				>
+			</li>
+
+			<li>
+				<a
+					href="https://github.com/axyut/keeper-app-client"
+					target="_blank"
+					class="simpleAnchor"
+					>Google Keeps Clone</a
+				>
+			</li>
+			<li>
+				<a
+					href="https://github.com/axyut/data_visualization_d3"
+					target="_blank"
+					class="simpleAnchor"
+					>Data Visualization</a
+				>
+			</li>
+			<li>
+				<a
+					href="http://github.com/axyut"
+					target="_blank"
+					class="simpleAnchor"
+					>Open Source Contributions</a
+				>
+			</li>
+			<li>
+				<a href="/" target="_blank" class="simpleAnchor"
+					>Blog Website</a
+				>
+			</li>
+			<li>
+				<a href="/" target="_blank" class="simpleAnchor"
+					>Application Tracking System</a
+				>
+			</li>
+			<li>
+				<a
+					href="https://github.com/axyut/pythonMinorProjects"
+					target="_blank"
+					class="simpleAnchor"
+					>C and Python Minor Projects</a
+				>
+				<ul>
+					<li>
+						<a
+							href="https://github.com/axyut/Youtube_video_downloader"
+							target="_blank"
+							class="simpleAnchor"
+							>YouTube Video Downloader</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://github.com/axyut/SnakeGame_python"
+							target="_blank"
+							class="simpleAnchor"
+							>Snake Game</a
+						>
+					</li>
+				</ul>
+			</li>
+			<li>
+				Microservices with NodeJS
+				<ul>
+					<li>
+						<a href="/" target="_blank" class="simpleAnchor"
+							>Mini App</a
+						>
+					</li>
+					<li>
+						<a href="/" target="_blank" class="simpleAnchor"
+							>Max App</a
+						>
+					</li>
+				</ul>
+			</li>
 		</ol>
 	</div>
+
 	<div class="year_timeline">
 		<h1
 			style="
@@ -82,131 +195,91 @@
 		>
 			Timeline
 		</h1>
+
 		<h2>2023</h2>
 
+		<% port2023.forEach(function(port){ %>
+
 		<ul>
 			<li>
 				<h3>
-					<a
-						href="/blog/gitlab-ci-private-docker-registry/"
-						class="portAnchor"
-						>Open Source Contributions
-					</a>
-				</h3>
-			</li>
-			<li>
-				<h3>
-					<a
-						href="/blog/gitlab-ci-private-docker-registry/"
-						class="portAnchor"
-						>Golang
+					<a href="/port/<%=port._id%>" class="portAnchor"
+						><%=port.title%>
 					</a>
 				</h3>
 			</li>
 		</ul>
+
+		<% }) %>
+
 		<h2>2022</h2>
 
+		<% port2022.forEach(function(port){ %>
+
 		<ul>
 			<li>
 				<h3>
-					<a
-						href="/blog/gitlab-ci-private-docker-registry/"
-						class="portAnchor"
-						>Pagination and Searching in NodeJS
+					<a href="/port/<%=port._id%>" class="portAnchor"
+						><%=port.title%>
 					</a>
 				</h3>
 			</li>
-
-			<li>
-				<h3>
-					<a href="/blog/dockerizing-a-react-app/" class="portAnchor"
-						>Assembly level Programming in microprocessor 8086</a
-					>
-				</h3>
-			</li>
-
-			<li>
-				<h3>
-					<a
-						href="/blog/deploying-jekyll-netlify-docker-gitlab-ci/"
-						class="portAnchor"
-						>Authentication and Authorization with Oauth2, JWT and
-						cookies</a
-					>
-				</h3>
-			</li>
 		</ul>
+
+		<% }) %>
+
 		<h2>2021</h2>
 
+		<% port2021.forEach(function(port){ %>
+
 		<ul>
 			<li>
 				<h3>
-					<a
-						href="/blog/gitlab-ci-private-docker-registry/"
-						class="portAnchor"
-						>Arduino Progamming and Robotics
+					<a href="/port/<%=port._id%>" class="portAnchor"
+						><%=port.title%>
 					</a>
 				</h3>
 			</li>
-
-			<li>
-				<h3>
-					<a href="/blog/dockerizing-a-react-app/" class="portAnchor"
-						>Frontend Web Development</a
-					>
-				</h3>
-			</li>
 		</ul>
+
+		<% }) %>
+
 		<h2>2020</h2>
 
+		<% port2020.forEach(function(port){ %>
+
 		<ul>
 			<li>
 				<h3>
-					<a
-						href="/blog/gitlab-ci-private-docker-registry/"
-						class="portAnchor"
-						>Windows recovery
+					<a href="/port/<%=port._id%>" class="portAnchor"
+						><%=port.title%>
 					</a>
 				</h3>
 			</li>
-
-			<li>
-				<h3>
-					<a href="/blog/dockerizing-a-react-app/" class="portAnchor"
-						>College Projects in C and Python</a
-					>
-				</h3>
-			</li>
 		</ul>
+
+		<% }) %>
 		<h2>2019</h2>
 
+		<% port2019.forEach(function(port){ %>
+
 		<ul>
 			<li>
 				<h3>
-					<a
-						href="/blog/gitlab-ci-private-docker-registry/"
-						class="portAnchor"
-						>Role of Computer Hardware Technician
+					<a href="/port/<%=port._id%>" class="portAnchor"
+						><%=port.title%>
 					</a>
 				</h3>
 			</li>
-
-			<li>
-				<h3>
-					<a href="/blog/dockerizing-a-react-app/" class="portAnchor"
-						>Installation of CCTVs</a
-					>
-				</h3>
-			</li>
 		</ul>
+
+		<% }) %>
 	</div>
 	<div class="contact">
 		<p class="styleAnchor">
 			<br /><br />
 			<br />
-			Whether you're a potential employer, a collaborator, or just
-			someone, I invite you to enter the matrix of my mind, where I turn
-			bits into bytes and bytes into brilliance.
+
 			<br />
 			<a class="styleAnchor" href="/publish">Contact Me</a>
 		</p>

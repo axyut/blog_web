@@ -1,22 +1,64 @@
-<%- include("partials/header"); -%> 
+<%- include("partials/header"); -%>
 
 <h1>Blogs Section</h1>
-<form action="/composeblogs" method="post" >
-        <textarea name="imgsrc" class="logoee" cols="60" rows="2" placeholder="imgsrc" ></textarea> <br>
-        <textarea class="logoee" name="postTitle" cols="60" rows="4" placeholder="title" required></textarea> <br>
-        <textarea class="logoee" name="postBody" id="" cols="60" rows="19" placeholder="Body"></textarea>
-        <br><button class="button" type="submit" name="blogsButton">Compose</button>
-
+<form action="/composeblogs" method="post">
+	<textarea
+		name="imgsrc"
+		class="logoee"
+		cols="60"
+		rows="2"
+		placeholder="imgsrc"
+	></textarea>
+	<br />
+	<textarea
+		class="logoee"
+		name="postTitle"
+		cols="60"
+		rows="4"
+		placeholder="title"
+		required
+	></textarea>
+	<br />
+	<textarea
+		class="logoee"
+		name="postBody"
+		id=""
+		cols="60"
+		rows="19"
+		placeholder="Body"
+	></textarea>
+	<br /><button class="button" type="submit" name="blogsButton">
+		Compose
+	</button>
 </form>
 
-<h1>Home Section</h1>
-<form action="/composehome" method="post">
-        <textarea name="imgsrc" class="logoee" cols="60" rows="2" placeholder="imgsrc" ></textarea> <br>
-        <textarea class="logoee" name="postTitle" cols="60" rows="5" placeholder="title" required> </textarea><br>
-        <textarea class="logoee" name="postBody" id="" cols="60" rows="19" placeholder="Body"></textarea>
-        <br><button class="button" type="submit" name="homeButton">Compose</button>
-
+<h1>Port Section</h1>
+<form action="/composePort" method="post">
+	<textarea name="year" class="logoee" cols="60" rows="2" placeholder="Year">
+Type YEAR less than 2019 for it to not appear at Portfolio page</textarea
+	>
+	<br />
+	<textarea
+		class="logoee"
+		name="title"
+		cols="60"
+		rows="2"
+		placeholder="title"
+		required
+	>
+	</textarea
+	><br />
+	<textarea
+		class="logoee"
+		name="body"
+		id=""
+		cols="60"
+		rows="19"
+		placeholder="Body"
+	></textarea>
+	<br /><button class="button" type="submit" name="homeButton">
+		Compose
+	</button>
 </form>
-
 
 <%- include("partials/footer"); -%>

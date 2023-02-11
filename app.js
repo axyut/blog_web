@@ -58,15 +58,24 @@ const postSchema = new mongoose.Schema({
 	img: String,
 });
 const Post = mongoose.model("Post", postSchema);
-const Home = mongoose.model("Home", postSchema);
+
+const portSchema = new mongoose.Schema({
+	title: String,
+	content: String,
+	year: Number,
+});
+const Port = mongoose.model("Port", portSchema);
 
 app.get("/", function (req, res) {
-	Home.find({}, function (err, homes) {
-		latest = homes.slice(0, 5);
-		popular = homes.slice(-5);
-		res.render("home", {
-			homes: latest,
-			pops: popular,
+	Post.find({}, function (err, post) {
+		top5 = post.slice(-5);
+		Port.find({}, function (err, port) {
+			bottom5 = port.slice(-5);
+
+			res.render("home", {
+				homes: top5,
+				pops: bottom5,
+			});
 		});
 	});
 });
@@ -88,7 +97,7 @@ app.get("/blogs", function (req, res) {
 		//Determine the LIMIT to get relevant number of posts
 		const startingLimit = (page - 1) * resultsPerPage;
 		const endingLimit = startingLimit + resultsPerPage;
-		posts = posts.slice(startingLimit, endingLimit);
+		posts = posts.reverse().slice(startingLimit, endingLimit);
 
 		let iterator = page - 2 < 1 ? 1 : page - 2;
 		let endingLink =
@@ -114,10 +123,6 @@ app.get("/elect", function (req, res) {
 	res.render("elect", { allContent: allContent });
 });
 
-app.get("/portfolio", function (req, res) {
-	res.render("port");
-});
-
 app.get("/portfolio.json", function (req, res) {
 	fs.readFile("./public/files/port.json", (err, json) => {
 		let obj = JSON.parse(json);
@@ -125,6 +130,7 @@ app.get("/portfolio.json", function (req, res) {
 	});
 });
 
+// Upload to database
 app.get("/compose", function (req, res) {
 	res.render("compose");
 });
@@ -226,14 +232,14 @@ app.post("/composeblogs", function (req, res) {
 	});
 });
 
-app.post("/composehome", function (req, res) {
-	const home = new Home({
-		title: req.body.postTitle,
-		content: req.body.postBody,
-		img: req.body.imgsrc,
+app.post("/composePort", function (req, res) {
+	const port = new Port({
+		title: req.body.title,
+		content: req.body.body,
+		year: req.body.year,
 	});
 
-	home.save(function (err) {
+	port.save(function (err) {
 		if (!err) {
 			res.redirect("/");
 		}
@@ -252,31 +258,35 @@ app.get("/posts/:postId", function (req, res) {
 	});
 });
 
-app.get("/post/:homeId", function (req, res) {
-	const requestedHomeId = req.params.homeId;
+app.get("/port/:portId", function (req, res) {
+	const requestedPortId = req.params.portId;
 
-	Home.findOne({ _id: requestedHomeId }, function (err, home) {
+	Port.findOne({ _id: requestedPortId }, function (err, port) {
 		res.render("post", {
-			title: home.title,
-			img: home.img,
-			content: home.content,
+			title: port.title,
+			img: "/images/portfolioTopPic.jpg",
+			content: port.content,
 		});
 	});
 });
 
+app.get("/portfolio", async (req, res) => {
+	port2023 = await Port.find({ year: 2023 });
+	port2022 = await Port.find({ year: 2022 });
+	port2021 = await Port.find({ year: 2021 });
+	port2020 = await Port.find({ year: 2020 });
+	port2019 = await Port.find({ year: 2019 });
+
+	res.render("port", { port2023, port2022, port2021, port2020, port2019 });
+});
+
 //////// API section ///////////
 
-app.route("/api/posts").get(function (req, res) {
-	Post.find(function (err, foundPosts) {
-		res.send(foundPosts);
-	});
-});
-
-app.route("/api/homes").get(function (req, res) {
-	Home.find(function (err, foundHomes) {
-		res.send(foundHomes);
-	});
-});
+// app.route("/api/posts").get(function (req, res) {
+// 	Post.find(function (err, foundPosts) {
+// 		res.send(foundPosts);
+// 	});
+// });
 
 connectDB().then(() => {
 	app.listen(process.env.PORT || 3000, function () {
