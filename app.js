@@ -1,5 +1,8 @@
 //jshint esversion:6
 
+// ideas
+// login system to access compose page with jwt and username password   on publish page
+
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -262,7 +265,7 @@ app.get("/port/:portId", function (req, res) {
 	const requestedPortId = req.params.portId;
 
 	Port.findOne({ _id: requestedPortId }, function (err, port) {
-		res.render("post", {
+		res.render("portDisplay", {
 			title: port.title,
 			img: "/images/portfolioTopPic.jpg",
 			content: port.content,
