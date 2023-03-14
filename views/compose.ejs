@@ -34,31 +34,51 @@
 
 <h1>Port Section</h1>
 <form action="/composePort" method="post">
-	<textarea name="year" class="logoee" cols="60" rows="2" placeholder="Year">
-Type YEAR less than 2019 for it to not appear at Portfolio page</textarea
-	>
+	<textarea
+		name="year"
+		class="logoee"
+		cols="60"
+		rows="2"
+		placeholder="Year"
+	></textarea>
+	<br /><textarea
+		class="logoee"
+		name="body"
+		cols="60"
+		rows="2"
+		placeholder="/blogs/example.html"
+	></textarea>
 	<br />
 	<textarea
 		class="logoee"
 		name="title"
 		cols="60"
-		rows="2"
-		placeholder="title"
+		rows="4"
+		placeholder="Title"
 		required
-	>
-	</textarea
-	><br />
+	></textarea>
+	<br />
+
 	<textarea
 		class="logoee"
-		name="body"
-		id=""
+		name="img"
 		cols="60"
-		rows="19"
-		placeholder="Body"
+		rows="4"
+		placeholder="Image src"
+		required
 	></textarea>
-	<br /><button class="button" type="submit" name="homeButton">
-		Compose
-	</button>
+
+	<br />
+	<textarea
+		class="logoee"
+		name="topContent"
+		cols="60"
+		rows="10"
+		placeholder="Top Content"
+		required
+	></textarea>
+	<br />
+	<button class="button" type="submit" name="homeButton">Compose</button>
 </form>
 
 <%- include("partials/footer"); -%>

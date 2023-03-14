@@ -6,13 +6,16 @@
 </h1>
 
 <div class="media-scroller snaps-inline" id="container">
-	<% homes.forEach(function(home){ %>
+	<% posts.forEach(function(post){ %>
 	<div class="media-element">
-		<h2><%=home.title.substring(0, 130)%></h2>
-		<img id="homeimg" src="<%=home.img%>" alt="<%=home.title%>" />
+		<h2><%=post.title.substring(0, 130)%></h2>
+		<a href="/posts/<%=post._id%>">
+			<img id="postimg" src="<%=post.img%>" alt="<%=post.title%>" />
+		</a>
+
 		<p class="title">
-			<%=home.content.substring(0, 240) + "..."%>
-			<a class="styleAnchor" href="/posts/<%=home._id%>">Read More</a>
+			<%=post.content.substring(0, 240) + "..."%>
+			<a class="styleAnchor" href="/posts/<%=post._id%>">Read More</a>
 		</p>
 	</div>
 
@@ -28,21 +31,19 @@
 
 -->
 
-<h1 class="section-title">My Story</h1>
+<h1 class="section-title">Articles</h1>
 
 <div class="media-scroller snaps-inline" id="container">
-	<% pops.forEach(function(pop){ %>
-	<div class="media-element" id="portText">
-		<h2><%=pop.title.substring(0, 130)%></h2>
-		<img
-			id="homeimg"
-			src="<%=pop.img%>"
-			alt="<%=pop.title%>"
-			style="display: none"
-		/>
-		<p class="title">
-			<%=pop.content.substring(0, 240) + "..."%>
-			<a class="styleAnchor" href="/port/<%=pop._id%>">Read More</a>
+	<% ports.forEach(function(port){ %>
+
+	<div class="media-element">
+		<h2 sty><%=port.title.substring(0, 130)%></h2>
+		<a href="/port/<%=port._id%>">
+			<img id="homeimg" src="<%=port.imgSrc%>" alt="<%=port.title%>"
+		/></a>
+		<p class="title" src="<%=port.content%>">
+			<%=port.topContent.substring(0, 240) + "..."%>
+			<a class="styleAnchor" href="/port/<%=port._id%>">Read More</a>
 		</p>
 	</div>
 

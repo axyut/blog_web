@@ -15,6 +15,7 @@ const fs = require("fs");
 // Mailing ##
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
+const { books } = require("googleapis/build/src/apis/books");
 const Oauth2 = google.auth.OAuth2;
 
 const Redirect_URL = process.env.REDIRECT_URL;
@@ -66,20 +67,17 @@ const portSchema = new mongoose.Schema({
 	title: String,
 	content: String,
 	year: Number,
+	imgSrc: String,
+	topContent: String,
 });
 const Port = mongoose.model("Port", portSchema);
 
-app.get("/", function (req, res) {
-	Post.find({}, function (err, post) {
-		top5 = post.slice(-5);
-		Port.find({}, function (err, port) {
-			bottom5 = port.slice(-5);
-
-			res.render("home", {
-				homes: top5,
-				pops: bottom5,
-			});
-		});
+app.get("/", async (req, res) => {
+	const top5 = await Post.find({}).sort({ _id: -1 }).limit(5);
+	const bottom5 = await Port.find({}).sort({ _id: -1 }).limit(5);
+	res.render("home", {
+		posts: top5,
+		ports: bottom5,
 	});
 });
 
@@ -239,7 +237,7 @@ app.post("/composePort", function (req, res) {
 	const port = new Port({
 		title: req.body.title,
 		content: req.body.body,
-		year: req.body.year,
+		year: req.body.year ? req.body.year : 2018,
 	});
 
 	port.save(function (err) {
@@ -253,7 +251,7 @@ app.get("/posts/:postId", function (req, res) {
 	const requestedPostId = req.params.postId;
 
 	Post.findOne({ _id: requestedPostId }, function (err, post) {
-		res.render("post", {
+		res.render("postDisplay", {
 			title: post.title,
 			img: post.img,
 			content: post.content,
@@ -267,7 +265,7 @@ app.get("/port/:portId", function (req, res) {
 	Port.findOne({ _id: requestedPortId }, function (err, port) {
 		res.render("portDisplay", {
 			title: port.title,
-			img: "/images/portfolioTopPic.jpg",
+			topContent: port.topContent,
 			content: port.content,
 		});
 	});
