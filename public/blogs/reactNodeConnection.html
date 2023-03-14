@@ -4,17 +4,12 @@
 		<link rel="stylesheet" href="css/iframe.css" />
 	</head>
 	<body>
-		<h2>Connection:</h2>
-		<p>Server is runnig on heroku server or port 3000 in local server</p>
-		<p>
-			MongoDB Connected: <br />
-			These messages are essentials
-		</p>
-        </code></pre>
-		<pre class="highlight"><code>├── app.js
+		<h2>Folder Structure:</h2>
+
+		<pre ><code>├── app.js
 ├── bin
 │   └── www
-├── package.json------------------------------------------------------------------------------------
+├── package.json
 ├── public
 │   ├── images
 │   ├── javascripts
@@ -28,5 +23,19 @@
     ├── index.jade
     └── layout.jade
 </code></pre>
+<p>Some of the common design architectures are:
+<ol><li>Model–View–ViewModel (MVVM)</li><li>Model-View-Controller (MVC)</li>
+<li>3 Tier Architecture</li></ol> <br> 
+<p> <strong>API vs Templating</strong>
+	: This are two different ways we can have our application establish communication between frontend and backend.
+<br><br><strong>1. Templating:</strong>
+
+A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
+<br><br><strong>2. API:</strong>
+API stands for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Let's say the user in your school portal inputs his name and password and hits login. That will send a post request to the backend and the backend which you wrote will check if the user is real or not. If the authentication is successful the backend will send a message and the user will navigate to the portal's dashboard.
+</p>
+
+
+</p>
 	</body>
 </html>

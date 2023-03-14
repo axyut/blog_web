@@ -1,6 +1,7 @@
 :root {
-	font-size: 16px;
-	font-family: "Open Sans";
+	font-size: 19px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+		sans-serif;
 	--text-primary: #b6b6b6;
 	--text-secondary: #ececec;
 	--h1-color: #baded0;
@@ -40,4 +41,21 @@ body::-webkit-scrollbar-thumb {
 p {
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
 		sans-serif;
+}
+
+li {
+	line-height: 130%;
+}
+
+a {
+	margin: 0;
+
+	padding: 0px;
+	text-align: center;
+	border-radius: 3px;
+	color: #c1dfbd;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: 15px;
+	text-decoration: none;
 }

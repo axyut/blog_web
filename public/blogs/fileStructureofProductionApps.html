@@ -5,7 +5,343 @@
 	</head>
 	<body>
 		<h2>File Structure in Go</h2>
+		<pre>	<code>
+├── bin
+│   └── www
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+│       └── style.css
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+		</code></pre>
 		<h2>File Structure in C</h2>
+		<pre>	<code>
+├── bin
+│   └── www
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+│       └── style.css
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+		</code></pre>
 		<h2>File Structure in Javascript</h2>
+
+		<pre>	<code>
+├── bin
+│   └── www
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+│       └── style.css
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+		</code></pre>
+		<h2>The General Model</h2>
+		<p>
+			Starting from the project root folder, the project is organized as
+			follows:
+		</p>
+		<pre><code>├── app.js
+├── README.md
+├── .gitignore
+├── LICENSE
+├── version
+├── RELEASE
+├── src
+│   ├── index.js
+│   └── users.js
+├── test
+│   ├── error.test.js
+│   └── layout.test.js
+└── resources
+    ├── database
+    └── doc
+</code></pre>
+		<ul>
+			<li>
+				<strong>README.md</strong><br />
+				<em>(required)</em> Every project should start with a
+				<em>README.md</em> file, a document in
+				<a href="http://daringfireball.net/projects/markdown/"
+					>Markdown</a
+				>
+				format containing the essential project information (i.e.:
+				<em
+					>name, description, category, authors, copyright, license,
+					links, contacts, ...</em
+				>) and some information on how to start and contribute. The
+				<em>README.md</em> file is usually rendered by the online
+				<a href="https://en.wikipedia.org/wiki/Version_control"
+					><em>Versioning Control System</em></a
+				>
+				(<em>VCS</em>) as an HTML page on the project landing page, so
+				it is effectively the entry point for anyone approaching the
+				project. For this reason it is important to fill it with the
+				right essential and quick-start information. Please see the
+				projects in the Example section for a practical reference.
+			</li>
+			<br />
+			<li>
+				<strong>LICENSE</strong><br />
+				<em>(required)</em> This file contains the license terms in
+				plain text. It is usually referenced in the
+				<em>README.md</em> and embedded in the software package (e.g.
+				<em>RPM, DEB, or Docker image</em>).
+			</li>
+			<br />
+			<li>
+				<strong>VERSION</strong><br />
+				<em>(required)</em> This is a plain text file containing the
+				semantic version of the software as a
+				<a href="https://en.wikipedia.org/wiki/Single_source_of_truth"
+					><em>Single Source Of Truth</em></a
+				>
+				(<em>SSOT</em>).<br />
+				This file is usually parsed by build scripts and embedded in the
+				software package name and content.<br />
+				For more information please read:
+				<a
+					href="https://technick.net/guides/software/software_versioning"
+					title="Software Versioning"
+					>Software Versioning</a
+				>.
+			</li>
+			<br />
+			<li>
+				<strong>RELEASE</strong><br />
+				<em>(required)</em> This is a plain text file containing the
+				release or build number. It can be dynamically generated and
+				overwritten during the packaging phase but it is better to keep
+				it as a <em>SSOT</em> to test build and packaging scripts.<br />
+				This file is usually parsed by build scripts and embedded in the
+				software package name and content.<br />
+				For more information please read:
+				<a
+					href="https://technick.net/guides/software/software_versioning"
+					title="Software Versioning"
+					>Software Versioning</a
+				>.
+			</li>
+			<br />
+			<li>
+				<strong>.gitignore</strong><br />
+				<em>(required)</em> Assuming that we are using GIT as VCS, this
+				file specifies intentionally untracked files that Git should
+				ignore.<br />
+				This should contain at least the dynamically generated directory
+				"target" that we use to store all the logs and artifacts
+				resulting from the test, build and report commands.
+			</li>
+			<br />
+			<li>
+				<strong>src</strong><br />
+				<em>(required)</em> This directory contains all and only the
+				project source code. It may also contain sub-directories to
+				logically organise the code in packages or namespaces. For some
+				languages like <em>GO</em> it also contains the unit tests
+				files. This directory should not contain any static resource
+				like text files, configuration files or HTML pages.
+			</li>
+			<br />
+			<li>
+				<strong>test</strong><br />
+				<em>(optional)</em> For languages that do not have a mechanism
+				like <em>golang</em> to distinguish source files from test
+				files, this directory contains the unit test files for the
+				source code defined in "<em>src</em>". Usually the test files
+				have the same name suffix or prefix of the correspondent source
+				files and are located in the same relative position.<br />
+				This directory can eventually contains other type of tests
+				organized in sub-folders, if these do not conflict with the unit
+				testing system.
+			</li>
+			<br />
+			<li>
+				<strong>vendor</strong><br />
+				<em>(optional)</em> This directory can be used to include
+				specific versions of external projects that are dependencies for
+				the main project.<br />
+				Usually these dependencies are managed using a specific
+				vendoring tool but in some languages they can also be filled
+				manually by paying attention on using the correct sub-directory
+				paths.
+			</li>
+			<br />
+			<li>
+				<strong>resources</strong><br />
+				<em>(optional)</em> This directory contains all the project
+				static resources and packaging configurations.<br />
+				The resources that will be packaged will be added with their
+				relative final destination path, following the
+				<em
+					><a
+						href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard"
+						>Filesystem Hierarchy Standard</a
+					></em
+				>
+				(<em>FHS</em>) to avoid breaking the
+				<a href="https://en.wikipedia.org/wiki/Security-Enhanced_Linux"
+					>SELinux</a
+				>
+				rules.<br />
+				For example, for a Linux service software we can have the
+				following sub-folders:
+				<ul>
+					<li>
+						<strong>debian</strong> : contains debian-specific
+						packaging files;
+					</li>
+					<li><strong>rpm</strong> : contains RPM spec files;</li>
+					<li>
+						<strong>git/hooks</strong> : contains git hook scripts
+						that can be installed locally by developers;
+					</li>
+					<li>
+						<strong>test</strong> : contains resource files for
+						testing;
+					</li>
+					<li>
+						<strong>DockerDeploy</strong> : contains the Dockerfile
+						used to package the software as runnable Docker image;
+					</li>
+					<li>
+						<strong>etc/<em>PROJECT</em></strong> : contains the
+						project configuration files (usually JSON files);
+					</li>
+					<li>
+						<strong>etc/init.d/<em>PROJECT</em></strong> : project
+						init file, if required;
+					</li>
+					<li>
+						<strong>usr/share/man/man1/<em>PROJECT</em>.1</strong> :
+						manual file, if required;
+					</li>
+					<li>
+						<strong>usr/share/<em>VENDOR-PROJECT</em></strong> :
+						contains project static resources like HTML pages or
+						templates.
+					</li>
+				</ul>
+			</li>
+			<br />
+			<li>
+				<strong>database</strong><br />
+				<em>(optional)</em> If the project has a database back-end this
+				directory contains the latest full database schema (i.e.
+				<strong><em>schema.sql</em></strong
+				>) and the initial data (i.e. <strong><em>data.sql</em></strong
+				>) used to populate the empty database.<br />
+				The database changes between each version of the software should
+				be added as SQL files inside a sub-directory named "<strong
+					><em>patch</em></strong
+				>". Each patch file should contain the reference versions
+				(from-to). For example:
+				<em>database/patch/schema_1.9.5-2.0.0.sql</em>
+			</li>
+			<br />
+			<li>
+				<strong>example</strong><br />
+				<em>(optional)</em> If the project is a library this directory
+				contains application examples.<br />
+				Examples are particular important in Open Source projects but
+				are also relevant for private projects as they help cutting the
+				training and support time required for newcomers. Usually are
+				easier and faster to understand than reading the full
+				documentation.
+			</li>
+			<br />
+			<li>
+				<strong>doc</strong><br />
+				<em>(optional)</em> For non trivial projects this directory
+				contains all the extra documentation.<br />
+				The documentation should be organised hierarchically in
+				<a href="http://daringfireball.net/projects/markdown/"
+					>Markdown</a
+				>
+				or HTML format. It may also contains reference documents in PDF
+				format.<br />
+				If the documentation is too large, too generic or subject to
+				frequent changes, it is better to make it available on the
+				project Website and add a link here or in the
+				<em>README.md</em> file.
+			</li>
+			<br />
+			<li>
+				<strong>target</strong><br />
+				<em>(dynamic)</em> This directory is intended to be
+				automatically created and destroyed by various test, build and
+				packaging scripts to store all the resulting logs, reports and
+				artifacts.<br />
+				The reason to name such directory is because:
+				<ol>
+					<li>
+						we can easily exclude all artifacts from the
+						<em>VCS</em> just by excluding this directory;
+					</li>
+					<li>
+						the <em>CI/CD</em> systems usually do not allow to write
+						anything outside the project (or pipeline) root;
+					</li>
+					<li>
+						we can easily save or copy all the artifacts from the
+						<em>CI/CD</em> system, <em>Virtual Machine</em> or
+						<em>Building Container</em> just copying this directory
+						without assuming anything about its content.
+					</li>
+				</ol>
+			</li>
+			<br />
+			<li>
+				<strong>other global project files</strong><br />
+				<em>(optional)</em> The project root directory should contain
+				global project files, for example:
+				<ul>
+					<li>
+						specific <em>CI/CD</em> configuration files (e.g.:
+						"<em>.travis.yml</em>");
+					</li>
+					<li>
+						configuration files for the dependency tool (e.g.
+						"<em>composer.json</em>");
+					</li>
+					<li>
+						configuration files for the unit testing tool (e.g.
+						"<em>phpunit.xml.dist</em>");
+					</li>
+					<li>other global configuration files;</li>
+					<li>
+						a <em>Makefile</em> that contains standardized targets
+						to execute common tasks like testing, source code static
+						analysis, building, packaging, etc; so we can reuse and
+						reproduce the same commands in multiple places (i.e. dev
+						machines, CI/CD systems, testing systems).
+					</li>
+				</ul>
+			</li>
+			<br />
+		</ul>
 	</body>
 </html>
