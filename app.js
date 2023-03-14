@@ -82,23 +82,40 @@ app.get("/", async (req, res) => {
 });
 
 // PAGINATION
-const resultsPerPage = 5;
 
-app.get("/blogs", function (req, res) {
-	Post.find({}, function (err, posts) {
-		if (err) throw err;
-		const numOfResults = posts.length;
-		const numberOfPages = Math.ceil(numOfResults / resultsPerPage);
+app.get("/blogs", async (req, res) => {
+	let resultsPerPage = 8;
+	const noOfDBs = 2;
+	const resultsPerDB = Math.floor(resultsPerPage / noOfDBs);
+	resultsPerPage =
+		resultsPerDB * noOfDBs === resultsPerPage
+			? resultsPerPage
+			: resultsPerDB * noOfDBs;
+	try {
+		const posts = await Post.countDocuments({});
+		const ports = await Port.countDocuments({});
+
+		const totalResults = posts + ports;
+		const numberOfPages = Math.ceil(totalResults / resultsPerPage);
+
 		let page = req.query.page ? Number(req.query.page) : 1;
 		if (page > numberOfPages) {
 			res.redirect(`/blogs?page=${encodeURIComponent(numberOfPages)}`);
 		} else if (page < 1) {
 			res.redirect(`/blogs?page=${encodeURIComponent("1")}`);
 		}
+
 		//Determine the LIMIT to get relevant number of posts
-		const startingLimit = (page - 1) * resultsPerPage;
-		const endingLimit = startingLimit + resultsPerPage;
-		posts = posts.reverse().slice(startingLimit, endingLimit);
+		const startingLimit = (page - 1) * resultsPerDB;
+		const endingLimit = startingLimit + resultsPerDB;
+		const paginatedposts = await Post.find({})
+			.sort({ _id: -1 })
+			.skip(startingLimit)
+			.limit(resultsPerDB);
+		const paginatedports = await Port.find({})
+			.sort({ _id: -1 })
+			.skip(startingLimit)
+			.limit(resultsPerDB);
 
 		let iterator = page - 2 < 1 ? 1 : page - 2;
 		let endingLink =
@@ -108,16 +125,18 @@ app.get("/blogs", function (req, res) {
 		if (endingLink < page + 1) {
 			iterator -= page + 1 - numberOfPages;
 		}
-
+		// console.log(iterator, endingLink); yinarko kaam khasai vaxaina aile to algi frontend ma
 		res.render("blogs", {
-			blogContent: blogContent,
-			posts: posts,
+			posts: paginatedposts,
+			ports: paginatedports,
 			page: page,
 			iterator: iterator,
 			endingLink: endingLink,
 			numberOfPages: numberOfPages,
 		});
-	});
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 app.get("/elect", function (req, res) {
