@@ -247,28 +247,32 @@ app.post("/composePort", function (req, res) {
 	});
 });
 
-app.get("/posts/:postId", function (req, res) {
+app.get("/posts/:postId", async (req, res) => {
 	const requestedPostId = req.params.postId;
-
-	Post.findOne({ _id: requestedPostId }, function (err, post) {
+	try {
+		const post = await Post.findOne({ _id: requestedPostId });
 		res.render("postDisplay", {
 			title: post.title,
 			img: post.img,
 			content: post.content,
 		});
-	});
+	} catch (error) {
+		console.log(error);
+	}
 });
 
-app.get("/port/:portId", function (req, res) {
+app.get("/port/:portId", async (req, res) => {
 	const requestedPortId = req.params.portId;
-
-	Port.findOne({ _id: requestedPortId }, function (err, port) {
+	try {
+		const port = await Port.findOne({ _id: requestedPortId });
 		res.render("portDisplay", {
 			title: port.title,
 			topContent: port.topContent,
 			content: port.content,
 		});
-	});
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 app.get("/portfolio", async (req, res) => {
