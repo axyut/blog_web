@@ -33,13 +33,14 @@
 </form>
 
 <h1>Port Section</h1>
-<form action="/composePort" method="post">
+<form class="formc">
 	<textarea
 		name="year"
 		class="logoee"
 		cols="60"
 		rows="2"
 		placeholder="Year"
+		id="port_year"
 	></textarea>
 	<br /><textarea
 		class="logoee"
@@ -47,6 +48,7 @@
 		cols="60"
 		rows="2"
 		placeholder="/blogs/example.html"
+		id="port_body"
 	></textarea>
 	<br />
 	<textarea
@@ -56,6 +58,7 @@
 		rows="4"
 		placeholder="Title"
 		required
+		id="port_title"
 	></textarea>
 	<br />
 
@@ -66,6 +69,7 @@
 		rows="4"
 		placeholder="Image src"
 		required
+		id="port_imgSrc"
 	></textarea>
 
 	<br />
@@ -76,9 +80,17 @@
 		rows="10"
 		placeholder="Top Content"
 		required
+		id="port_topContent"
 	></textarea>
 	<br />
 	<button class="button" type="submit" name="homeButton">Compose</button>
+	<h2 class="resultc"></h2>
 </form>
-
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+	integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+	crossorigin="anonymous"
+	referrerpolicy="no-referrer"
+></script>
+<script src="/js/composeForm.js"></script>
 <%- include("partials/footer"); -%>

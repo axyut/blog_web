@@ -1,7 +1,8 @@
-const formDOM = document.querySelector(".form");
+const formDOM = document.querySelector(".formp");
 const usernameInputDOM = document.querySelector("#username_input");
 const emailInputDOM = document.querySelector("#email_input");
 const passwordInputDOM = document.querySelector("#password_input");
+const resultpDOM = document.querySelector(".resultp");
 
 formDOM.addEventListener("submit", async (e) => {
 	e.preventDefault();
@@ -20,27 +21,11 @@ formDOM.addEventListener("submit", async (e) => {
 		passwordInputDOM.value = "";
 
 		localStorage.setItem("token", data.token);
+		resultpDOM.innerHTML = "Successfully logged In";
 	} catch (error) {
 		localStorage.removeItem("token");
+		resultpDOM.innerHTML = "Error Logging in.";
 		console.log(error);
 	}
 	setTimeout(2000);
-});
-
-const composebtnDOM = document.querySelector("#compose-btn");
-
-composebtnDOM.addEventListener("click", async () => {
-	const token = localStorage.getItem("token");
-	try {
-		const { data } = await axios.get("/compose", {
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		});
-
-		console.log(data.user);
-	} catch (error) {
-		localStorage.removeItem("token");
-		console.log(error);
-	}
 });

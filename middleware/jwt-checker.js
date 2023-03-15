@@ -1,10 +1,10 @@
 const User = require("../model/User");
-// const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 
 const jwt_checker = async (req, res, next) => {
 	const authHeader = req.headers.authorization;
 	if (!authHeader || !authHeader.startsWith("Bearer ")) {
-		throw new Error("Authentication Invalid!");
+		res.send("Authentication Inavlid");
 	}
 
 	const token = authHeader.split(" ")[1];
@@ -14,6 +14,7 @@ const jwt_checker = async (req, res, next) => {
 		const user = await User.findById(payload.userId).select("-password");
 
 		req.user = user;
+		console.log(req.body.topContent, req.body.year, req.body.content);
 		next();
 	} catch (error) {
 		throw new Error("Authentication Invalid!");

@@ -47,8 +47,8 @@ app.use(express.static("public"));
 //using mongoose to store blog in local database
 //mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
 
-const mongoURL = "mongodb://localhost:27017/blogDB";
-// const mongoURL = process.env.MONGO_CONNECT;
+//const mongoURL = "mongodb://localhost:27017/blogDB";
+const mongoURL = process.env.MONGO_CONNECT;
 
 const connectDB = async () => {
 	try {
@@ -290,22 +290,25 @@ app.post("/composeblogs", function (req, res) {
 	});
 });
 
-app.post("/composePort", function (req, res) {
+app.post("/composePort", jwt_checker, async (req, res) => {
+	const { title, content, year, imgSrc, topContent } = req.body;
+	//console.log(title, content, year, imgSrc, topContent, req.user);
 	const port = new Port({
-		title: req.body.title,
-		content: req.body.body,
-		year: req.body.year ? req.body.year : 2018,
+		title,
+		content,
+		year: year ? year : 2018,
+		imgSrc,
+		topContent,
 	});
 
-	port.save(function (err) {
-		if (!err) {
-			res.redirect("/");
-		}
-	});
+	const saved = await port.save();
+	if (saved) {
+		res.redirect("/");
+	}
 });
 
 // Upload to database
-app.get("/compose", jwt_checker, function (req, res) {
+app.get("/compose", function (req, res) {
 	res.render("compose", { user: req.user });
 });
 
