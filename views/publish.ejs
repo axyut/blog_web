@@ -1,50 +1,97 @@
 <%- include("partials/header"); -%>
-
-<h2>Get In Touch</h2>
-<p>
-	Feature your Articles, Findings and Research works here or<br />simply
-	contact me if you've something to share.
-</p>
-<form action="/publish" method="post">
-	<input
-		class="logoe"
-		type="text"
-		name="name"
-		placeholder="*Full Name"
-		required
-	/>
-	<input
-		class="logoe"
-		type="text"
-		name="email"
-		placeholder="*Email Address"
-		required
-	/>
-	<br />
-	<textarea
-		class="logoee"
-		id="publishTitle"
-		name="postTitle"
-		rows="5"
-		required
-	>
+<section class="publishinputs">
+	<div class="pubinput">
+		<h2>Get In Touch</h2>
+		<p>
+			Feature your Articles, Findings and Research works here or<br />simply
+			contact me if you've something to share.
+		</p>
+		<form action="/publish" method="post">
+			<input
+				class="logoe"
+				type="text"
+				name="name"
+				placeholder="*Full Name"
+				required
+			/>
+			<input
+				class="logoe"
+				type="text"
+				name="email"
+				placeholder="*Email Address"
+				required
+			/>
+			<br />
+			<textarea
+				class="logoee"
+				id="publishTitle"
+				name="postTitle"
+				rows="5"
+				required
+			>
  Title: </textarea
-	>
-	<br />
-	<textarea
-		class="logoee"
-		id="publishBody"
-		name="postBody"
-		rows="17"
-		aria-placeholder="Body"
-		required
-	>
+			>
+			<br />
+			<textarea
+				class="logoee"
+				id="publishBody"
+				name="postBody"
+				rows="17"
+				aria-placeholder="Body"
+				required
+			>
  Body:</textarea
-	>
-	<br />
-	<button class="button" type="submit" name="button">SEND</button>
-</form>
+			>
+			<br />
+			<button class="button" type="submit" name="button">SEND</button>
+		</form>
+	</div>
+	<div class="pubinput" id="loginpub">
+		<h2>Admin Login</h2>
+		<form class="form">
+			<input
+				id="username_input"
+				class="logoe"
+				type="text"
+				name="username"
+				placeholder="Username"
+				required
+			/>
+			<br />
+			<input
+				id="email_input"
+				class="logoe"
+				type="email"
+				name="email"
+				placeholder="Email Address"
+				required
+			/>
+			<br />
+			<input
+				id="password_input"
+				class="logoe"
+				type="password"
+				name="password"
+				placeholder="Password"
+				required
+			/>
+			<br />
+			<div
+				style="
+					display: flex;
+					justify-content: space-around;
+					flex-direction: row;
+				"
+			>
+				<button class="button" type="submit" name="button">
+					Login
+				</button>
 
+				<a href="/compose" class="button" id="compose-btn">Compose</a>
+			</div>
+		</form>
+	</div>
+</section>
 <section class="cardHolder">
 	<div class="card">
 		<h2>About Website</h2>
@@ -96,4 +143,11 @@
 		<a class="styleAnchor" href="/about-privacy">Read All</a>
 	</div>
 </section>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+	integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+	crossorigin="anonymous"
+	referrerpolicy="no-referrer"
+></script>
+<script src="/js/loginForm.js"></script>
 <%- include("partials/footer"); -%>

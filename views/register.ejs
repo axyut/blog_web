@@ -1,0 +1,33 @@
+<%- include("partials/header"); -%>
+
+<h2>Admin Register</h2>
+<form action="/admin/register" method="post">
+	<input
+		class="logoe"
+		type="text"
+		name="username"
+		placeholder="Username"
+		required
+	/>
+	<br />
+	<input
+		class="logoe"
+		type="email"
+		name="email"
+		placeholder="Email Address"
+		required
+	/>
+	<br />
+	<input
+		class="logoe"
+		type="password"
+		name="password"
+		placeholder="Password"
+		required
+	/>
+	<br />
+	<button class="button" type="submit" name="button">Register</button>
+	<br />
+</form>
+
+<%- include("partials/footer"); -%>

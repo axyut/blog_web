@@ -11,11 +11,14 @@ const _ = require("lodash");
 const { redirect } = require("express/lib/response");
 const mongoose = require("mongoose");
 const fs = require("fs");
+const adminRouter = require("./routes/admin");
+const jwt_checker = require("./middleware/jwt-checker");
 
 // Mailing ##
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const { books } = require("googleapis/build/src/apis/books");
+
 const Oauth2 = google.auth.OAuth2;
 
 const Redirect_URL = process.env.REDIRECT_URL;
@@ -44,9 +47,12 @@ app.use(express.static("public"));
 //using mongoose to store blog in local database
 //mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
 
+const mongoURL = "mongodb://localhost:27017/blogDB";
+// const mongoURL = process.env.MONGO_CONNECT;
+
 const connectDB = async () => {
 	try {
-		const conn = await mongoose.connect(process.env.MONGO_CONNECT, {
+		const conn = await mongoose.connect(mongoURL, {
 			useNewUrlParser: true,
 		});
 		console.log(`MongoDB Connected: ${conn.connection.host}`);
@@ -150,11 +156,6 @@ app.get("/portfolio.json", function (req, res) {
 	});
 });
 
-// Upload to database
-app.get("/compose", function (req, res) {
-	res.render("compose");
-});
-
 app.get("/publish", function (req, res) {
 	res.render("publish");
 });
@@ -237,35 +238,6 @@ app.post("/publish", function (req, res) {
 		.catch((error) => console.log(error.message));
 	res.redirect("/");
 });
-
-app.post("/composeblogs", function (req, res) {
-	const post = new Post({
-		title: req.body.postTitle,
-		content: req.body.postBody,
-		img: req.body.imgsrc,
-	});
-
-	post.save(function (err) {
-		if (!err) {
-			res.redirect("/");
-		}
-	});
-});
-
-app.post("/composePort", function (req, res) {
-	const port = new Port({
-		title: req.body.title,
-		content: req.body.body,
-		year: req.body.year ? req.body.year : 2018,
-	});
-
-	port.save(function (err) {
-		if (!err) {
-			res.redirect("/");
-		}
-	});
-});
-
 app.get("/posts/:postId", async (req, res) => {
 	const requestedPostId = req.params.postId;
 	try {
@@ -304,6 +276,39 @@ app.get("/portfolio", async (req, res) => {
 	res.render("port", { port2023, port2022, port2021, port2020, port2019 });
 });
 
+app.post("/composeblogs", function (req, res) {
+	const post = new Post({
+		title: req.body.postTitle,
+		content: req.body.postBody,
+		img: req.body.imgsrc,
+	});
+
+	post.save(function (err) {
+		if (!err) {
+			res.redirect("/");
+		}
+	});
+});
+
+app.post("/composePort", function (req, res) {
+	const port = new Port({
+		title: req.body.title,
+		content: req.body.body,
+		year: req.body.year ? req.body.year : 2018,
+	});
+
+	port.save(function (err) {
+		if (!err) {
+			res.redirect("/");
+		}
+	});
+});
+
+// Upload to database
+app.get("/compose", jwt_checker, function (req, res) {
+	res.render("compose", { user: req.user });
+});
+
 //////// API section ///////////
 
 // app.route("/api/posts").get(function (req, res) {
@@ -311,6 +316,13 @@ app.get("/portfolio", async (req, res) => {
 // 		res.send(foundPosts);
 // 	});
 // });
+
+// Admin login
+app.use("/admin", adminRouter);
+
+app.get("/admin/register", (req, res) => {
+	res.render("register");
+});
 
 connectDB().then(() => {
 	app.listen(process.env.PORT || 3000, function () {

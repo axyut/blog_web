@@ -325,6 +325,17 @@ main {
 	.card-paragrapgh {
 		height: auto;
 	}
+
+	.publishinputs {
+		flex-direction: column;
+	}
+	.pubinput {
+		width: 100%;
+		height: min-content;
+	}
+	#loginpub {
+		margin: auto;
+	}
 }
 
 /* Large screens */
@@ -724,4 +735,21 @@ hr {
 
 a {
 	text-decoration: none;
+}
+
+.publishinputs {
+	display: flex;
+	justify-content: space-around;
+}
+
+.pubinput {
+	background: var(--bg-secondary);
+	padding: 0;
+}
+#loginpub {
+	margin-top: 10%;
+}
+.form {
+	display: flex;
+	flex-direction: column;
 }
