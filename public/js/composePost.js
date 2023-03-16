@@ -13,7 +13,7 @@ formpostDOM.addEventListener("submit", async (e) => {
 	const token = localStorage.getItem("token");
 	try {
 		const { data } = await axios.post(
-			"/composeblogs",
+			"/compose/blogs",
 			{
 				title: post_title.value,
 				content: post_content.value,

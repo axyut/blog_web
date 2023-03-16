@@ -20,7 +20,7 @@ formCDOM.addEventListener("submit", async (e) => {
 	const token = localStorage.getItem("token");
 	try {
 		const { data } = await axios.post(
-			"/composePort",
+			"/compose/port",
 			{
 				title: port_title.value,
 				content: port_body.value,
