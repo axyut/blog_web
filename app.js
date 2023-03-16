@@ -14,7 +14,7 @@ const PostsBlogsRouter = require("./routes/posts");
 const PortBlogsRouter = require("./routes/port");
 const AboutRouter = require("./routes/about");
 
-// DataBase MongoDB
+// DataBase
 const connectDB = require("./database/connection");
 
 // Middlewares
