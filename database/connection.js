@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const mongoURL = "mongodb://localhost:27017/blogDB";
-//const mongoURL = process.env.MONGO_CONNECT;
+const mongolocalURL = process.env.MONGO_LOCAL;
+const mongoURL = process.env.MONGO_CONNECT;
 
 module.exports = async () => {
 	try {
