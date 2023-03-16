@@ -1,13 +1,14 @@
 <%- include("partials/header"); -%>
 
 <h1>Blogs Section</h1>
-<form action="/composeblogs" method="post">
+<form class="formPost">
 	<textarea
 		name="imgsrc"
 		class="logoee"
 		cols="60"
 		rows="2"
 		placeholder="imgsrc"
+		id="post_img"
 	></textarea>
 	<br />
 	<textarea
@@ -17,19 +18,21 @@
 		rows="4"
 		placeholder="title"
 		required
+		id="post_title"
 	></textarea>
 	<br />
 	<textarea
 		class="logoee"
 		name="postBody"
-		id=""
 		cols="60"
 		rows="19"
 		placeholder="Body"
+		id="post_content"
 	></textarea>
 	<br /><button class="button" type="submit" name="blogsButton">
 		Compose
 	</button>
+	<h2 class="resultpost"></h2>
 </form>
 
 <h1>Port Section</h1>
@@ -92,5 +95,6 @@
 	crossorigin="anonymous"
 	referrerpolicy="no-referrer"
 ></script>
-<script src="/js/composeForm.js"></script>
+<script src="/js/composePost.js"></script>
+<script src="/js/composePort.js"></script>
 <%- include("partials/footer"); -%>

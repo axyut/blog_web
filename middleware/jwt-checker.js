@@ -14,7 +14,7 @@ const jwt_checker = async (req, res, next) => {
 		const user = await User.findById(payload.userId).select("-password");
 
 		req.user = user;
-		console.log(req.body.topContent, req.body.year, req.body.content);
+		// console.log(req.body);
 		next();
 	} catch (error) {
 		throw new Error("Authentication Invalid!");

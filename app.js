@@ -276,23 +276,28 @@ app.get("/portfolio", async (req, res) => {
 	res.render("port", { port2023, port2022, port2021, port2020, port2019 });
 });
 
-app.post("/composeblogs", function (req, res) {
+app.post("/composeblogs", jwt_checker, async (req, res) => {
+	const { title, content, img } = req.body;
 	const post = new Post({
-		title: req.body.postTitle,
-		content: req.body.postBody,
-		img: req.body.imgsrc,
+		title,
+		content,
+		img,
 	});
-
-	post.save(function (err) {
-		if (!err) {
-			res.redirect("/");
+	try {
+		const saved = await post.save();
+		if (saved) {
+			console.log("sucess");
+			res.send(req.user);
 		}
-	});
+	} catch (error) {
+		console.log(error);
+		res.send(error);
+	}
 });
 
 app.post("/composePort", jwt_checker, async (req, res) => {
 	const { title, content, year, imgSrc, topContent } = req.body;
-	//console.log(title, content, year, imgSrc, topContent, req.user);
+
 	const port = new Port({
 		title,
 		content,
@@ -300,10 +305,15 @@ app.post("/composePort", jwt_checker, async (req, res) => {
 		imgSrc,
 		topContent,
 	});
-
-	const saved = await port.save();
-	if (saved) {
-		res.redirect("/");
+	try {
+		const saved = await port.save();
+		if (saved) {
+			console.log("success");
+			res.send(req.user);
+		}
+	} catch (error) {
+		console.log(error);
+		res.send(error);
 	}
 });
 

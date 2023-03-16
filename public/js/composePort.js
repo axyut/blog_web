@@ -1,7 +1,7 @@
-// compose page
+// compose page port area
 const formCDOM = document.querySelector(".formc");
 const resultcDOM = document.querySelector(".resultc");
-// const composebtnDOM = document.querySelector("#compose-btn");
+
 const port_year = document.querySelector("#port_year");
 const port_title = document.querySelector("#port_title");
 const port_imgSrc = document.querySelector("#port_imgSrc");
@@ -19,7 +19,7 @@ formCDOM.addEventListener("submit", async (e) => {
 	);
 	const token = localStorage.getItem("token");
 	try {
-		return await axios.post(
+		const { data } = await axios.post(
 			"/composePort",
 			{
 				title: port_title.value,
@@ -35,8 +35,10 @@ formCDOM.addEventListener("submit", async (e) => {
 				},
 			}
 		);
+		console.log(data);
+		resultcDOM.innerHTML = `Success User: ${data.username}`;
 	} catch (error) {
-		// localStorage.removeItem("token");
+		localStorage.removeItem("token");
 		resultcDOM.innerHTML = `You're Unauthenticated.`;
 		console.log(error);
 	}

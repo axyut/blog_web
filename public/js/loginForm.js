@@ -3,6 +3,7 @@ const usernameInputDOM = document.querySelector("#username_input");
 const emailInputDOM = document.querySelector("#email_input");
 const passwordInputDOM = document.querySelector("#password_input");
 const resultpDOM = document.querySelector(".resultp");
+const composebtnDOM = document.querySelector("#compose-btn");
 
 formDOM.addEventListener("submit", async (e) => {
 	e.preventDefault();
@@ -21,6 +22,7 @@ formDOM.addEventListener("submit", async (e) => {
 		passwordInputDOM.value = "";
 
 		localStorage.setItem("token", data.token);
+		composebtnDOM.style.display = "";
 		resultpDOM.innerHTML = "Successfully logged In";
 	} catch (error) {
 		localStorage.removeItem("token");
@@ -29,3 +31,12 @@ formDOM.addEventListener("submit", async (e) => {
 	}
 	setTimeout(2000);
 });
+
+const checkToken = async () => {
+	composebtnDOM.style.display = "none";
+	const token = localStorage.getItem("token");
+	if (token) {
+		composebtnDOM.style.display = "";
+	}
+};
+checkToken();
