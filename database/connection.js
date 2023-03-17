@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongolocalURL = process.env.MONGO_LOCAL;
+//const mongolocalURL = process.env.MONGO_LOCAL;
 const mongoURL = process.env.MONGO_CONNECT;
 
 module.exports = async () => {
