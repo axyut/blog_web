@@ -47,8 +47,8 @@ const portfolioPage = async (req, res) => {
 	res.render("port", { port2023, port2022, port2021, port2020, port2019 });
 };
 
-const electPage = function (req, res) {
-	res.render("elect");
+const contributePage = function (req, res) {
+	res.render("contribute");
 };
 
 const publishPage = function (req, res) {
@@ -59,6 +59,6 @@ module.exports = {
 	homePage,
 	blogsPage,
 	portfolioPage,
-	electPage,
+	contributePage,
 	publishPage,
 };

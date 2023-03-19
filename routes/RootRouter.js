@@ -10,7 +10,7 @@ const {
 	homePage,
 	blogsPage,
 	portfolioPage,
-	electPage,
+	contributePage,
 	publishPage,
 } = require("../controllers/root");
 
@@ -24,9 +24,9 @@ const AboutRouter = require("./about");
 
 // Pages
 router.get("/", pagination, homePage);
-router.get("/blogs", pagination, blogsPage); // pagination middleware
+//router.get("/blogs", pagination, blogsPage);
 router.get("/portfolio", portfolioPage);
-router.get("/elect", electPage);
+router.get("/contribute", contributePage);
 router.get("/publish", publishPage);
 
 // Service
