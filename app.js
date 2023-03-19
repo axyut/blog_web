@@ -18,7 +18,8 @@ app.use(express.static("public"));
 app.use("", rootRouter);
 
 const PORT = process.env.PORT;
-connectDB().then(() => {
+const URL = process.env.MONGO_CONNECT;
+connectDB(URL).then(() => {
 	app.listen(PORT, function () {
 		console.log(`Server is running at http://localhost:${PORT}`);
 	});
