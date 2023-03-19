@@ -1,4 +1,4 @@
-<%- include("partials/header"); -%> <% if(page == 1) { %>
+<%- include("partials/header"); -%>
 <input
 	class="searchArea"
 	onkeyup="sendData(this)"
@@ -17,7 +17,7 @@
 3. scroll sideways text integrated inside the scroll bar or scroll bar track
 
 -->
-
+<% if(page == 1) { %>
 <h1 class="section-title">Latests</h1>
 
 <div class="media-scroller snaps-inline" id="container">
