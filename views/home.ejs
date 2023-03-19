@@ -1,12 +1,18 @@
-<%- include("partials/header"); -%>
-
-<h1 class="section-title">
-	!!!
-	<!-- <a class="styleAnchor" href="/api/homes">Get API</a> -->
-</h1>
+<%- include("partials/header"); -%> <% if(page == 1) { %>
+<input
+	class="searchArea"
+	onkeyup="sendData(this)"
+	type="text"
+	name=""
+	id="search-box"
+	placeholder="Search..."
+	autofocus
+/>
+<section id="searchResults"></section>
+<h1 id="blogh1" class="section-title">!!!</h1>
 
 <div class="media-scroller snaps-inline" id="container">
-	<% posts.forEach(function(post){ %>
+	<% top5.forEach(function(post){ %>
 	<div class="media-element">
 		<h2><%=post.title.substring(0, 130)%></h2>
 		<a href="/posts/<%=post._id%>">
@@ -34,7 +40,7 @@
 <h1 class="section-title">Articles</h1>
 
 <div class="media-scroller snaps-inline" id="container">
-	<% ports.forEach(function(port){ %>
+	<% bottom5.forEach(function(port){ %>
 
 	<div class="media-element">
 		<h2 sty><%=port.title.substring(0, 130)%></h2>
@@ -49,5 +55,61 @@
 
 	<% }) %>
 </div>
+
+<p>Read what you like.</p>
+
+<% } %> <% posts.forEach(function(post){ %>
+<div class="trail">
+	<a href="/posts/<%=post._id%>">
+		<img id="blogimg" src="<%=post.img%>" alt="<%=post.title%>" />
+		<h2><%=post.title%></h2>
+	</a>
+
+	<p>
+		<%=post.content.substring(0, 440) + " ..."%>
+		<a class="styleAnchor" href="/posts/<%=post._id%>">Read More</a>
+	</p>
+</div>
+<% }) %> <% ports.forEach(function(port){ %>
+<div class="trail">
+	<a href="/port/<%=port._id%>">
+		<img id="blogimg" src="<%=port.imgSrc%>" alt="<%=port.title%>" />
+		<h2><%=port.title%></h2>
+	</a>
+
+	<p>
+		<%=port.topContent.substring(0, 440) + " ..."%>
+		<a class="styleAnchor" href="/port/<%=port._id%>">Read More</a>
+	</p>
+</div>
+<% }) %>
+
+<div class="pagination">
+	<!-- . -->
+	<% if(page > 1) { %>
+	<a class="pageItem" href="/?page=1">1</a>
+	<a class="pageItem" href="/?page=<%=page-1%>">⫷</a>
+
+	<% } %>
+	<!-- . -->
+	<% for(let i = iterator; i <= numberOfPages; i++) { %>
+	<!-- . -->
+	<% if(i === page) { %>
+	<a class="pageItem" id="selectedLink" href="/?page=<%=i%>"><%=i%></a>
+	<% continue; %>
+	<!-- . -->
+	<% } %>
+	<!-- . -->
+
+	<% } %>
+	<!-- . -->
+	<% if(page < numberOfPages) { %>
+
+	<a class="pageItem" href="/?page=<%=page+1%>">⫸</a>
+	<a class="pageItem" href="/?page=<%=numberOfPages%>"><%=numberOfPages%></a>
+	<% } %>
+</div>
+
+<script src="/js/script.js"></script>
 
 <%- include("partials/footer"); -%>

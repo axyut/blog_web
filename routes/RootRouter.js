@@ -23,7 +23,7 @@ const PortBlogsRouter = require("./port");
 const AboutRouter = require("./about");
 
 // Pages
-router.get("/", homePage);
+router.get("/", pagination, homePage);
 router.get("/blogs", pagination, blogsPage); // pagination middleware
 router.get("/portfolio", portfolioPage);
 router.get("/elect", electPage);

@@ -2,12 +2,23 @@ const Port = require("../model/Port");
 const Post = require("../model/Post");
 
 const homePage = async (req, res) => {
-	const top5 = await Post.find({}).sort({ _id: -1 }).limit(5);
-	const bottom5 = await Port.find({}).sort({ _id: -1 }).limit(5);
-	res.render("home", {
-		posts: top5,
-		ports: bottom5,
-	});
+	try {
+		const { posts, ports, page, iterator, endingLink, numberOfPages } = req;
+		const top5 = await Post.find({}).sort({ _id: -1 }).limit(5);
+		const bottom5 = await Port.find({}).sort({ _id: -1 }).limit(5);
+		res.render("home", {
+			top5,
+			bottom5,
+			posts,
+			ports,
+			page,
+			iterator,
+			endingLink,
+			numberOfPages,
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 const blogsPage = async (req, res) => {
