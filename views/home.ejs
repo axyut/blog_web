@@ -11,25 +11,6 @@
 <section id="searchResults"></section>
 <h1 id="blogh1" class="section-title">!!!</h1>
 
-<div class="media-scroller snaps-inline" id="container">
-	<% top5.forEach(function(post){ %>
-	<div class="media-element">
-		<h2><%=post.title.substring(0, 130)%></h2>
-		<a href="/posts/<%=post._id%>">
-			<img id="postimg" src="<%=post.img%>" alt="<%=post.title%>" />
-		</a>
-
-		<p class="title">
-			<%=post.content.substring(0, 240) + "..."%>
-			<a class="styleAnchor" href="/posts/<%=post._id%>">Read More</a>
-		</p>
-	</div>
-
-	<% }) %>
-</div>
-
-<p class="sideways">⋘ scroll sideways ⋙</p>
-
 <!-- works to do  
 
 2. horizontal scrolling through mouse wheel in only latest blogs section/div outside of it, vertical scroll mouse wheel
@@ -37,7 +18,7 @@
 
 -->
 
-<h1 class="section-title">Articles</h1>
+<h1 class="section-title">Latests</h1>
 
 <div class="media-scroller snaps-inline" id="container">
 	<% bottom5.forEach(function(port){ %>
@@ -55,8 +36,9 @@
 
 	<% }) %>
 </div>
-
-<p>Read what you like.</p>
+<p class="sideways">⋘ scroll sideways ⋙</p>
+<br />
+<p>All Articles</p>
 
 <% } %> <% posts.forEach(function(post){ %>
 <div class="trail">
@@ -110,6 +92,6 @@
 	<% } %>
 </div>
 
-<script src="/js/script.js"></script>
+<script src="/js/searchScript.js"></script>
 
 <%- include("partials/footer"); -%>
