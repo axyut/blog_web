@@ -5,5 +5,117 @@
 	</head>
 	<body>
 		<h2>Troubleshooting a PC</h2>
+		<ol>
+			<li>Power or display is not present in computer</li>
+			<li>
+				Computer restarts/shuts down/ hangs after few minutes runtime
+			</li>
+			<li>
+				Hard disk/ Boot device not found error or Dumping message while
+				booting
+			</li>
+			<li>IDE/AHCI Mode or Legacy/UEFI Mode selection</li>
+			<li>BIOS password solutions with Cmos battery/Jumper</li>
+		</ol>
+
+		<ol>
+			<li>
+				<ul>
+					<h3>No power:</h3>
+					<li>Check smps and wiring</li>
+					<li>Check Casing power button</li>
+					<li>
+						Remove extra 4 pin power connector from motherboard and
+						check status Check grey +5V (power good) wire from smps
+					</li>
+				</ul>
+				<ul>
+					<h3>No display:</h3>
+					<li>Check display port and wire and wiring</li>
+					<li>
+						Check if Num locks are light on keyboard problem is with
+						Monitor Else
+					</li>
+					<li>
+						check Ram and cpu and clean and reassemble them else
+					</li>
+					<li>
+						check SMPS grey (+5V power good) and purple wiring (+5V
+						stand by)
+					</li>
+				</ul>
+				Generally Incase of faulty graphics card, lining appears Incase
+				of faulty North bridge, display flickers Incase of processor
+				display will hang. Advanced : Use a power supply tester to check
+				if the PSU is providing the correct voltages to the motherboard.
+			</li>
+			<li>
+				<ul>
+					<h3>Restarts:</h3>
+					<li>Service your PC and Apply good cooling paste on cpu</li>
+					<li>
+						Check if Ram and cpu meet with motherboard s
+						requirements
+					</li>
+					<li>
+						Check cpu fan and smps fan and wire of cpu fan
+						connecting smps
+					</li>
+					<li>
+						Check cpu rpm at BIOS setting and see if it is as
+						mentioned by provider(generally >1600)
+					</li>
+					<li>Check for updates and antivirus software</li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<h3>Boot device:</h3>
+					<li>
+						Switch with different ports in motherboard Check the
+						disk with another pc
+					</li>
+					<li>Try replacing SATA or PATA cable</li>
+					<li>
+						Select your hard disk as first priority boot device at
+						BIOS setting
+					</li>
+					<li>
+						South bridge might be faulty Bad sector might be present
+						in hdd
+					</li>
+					<h3>Dumping message:</h3>
+					<li>Error with white text error code on blue screen</li>
+					<li>
+						Generally caused by faulty hard disk drive or RAM Try
+						servicing them and changing them
+					</li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<h3>Modes:</h3>
+					<li>
+						Older pc needs to be in IDE mode at BIOS for os setup
+					</li>
+					<li>
+						Modern pcs can be legacy or uefi Make bootable device in
+						MBR for legacy, and uefi in uefi
+					</li>
+				</ul>
+				<img
+					src="https://i.ytimg.com/vi/_lrmZo_jXLA/hqdefault.jpg"
+					alt="rufus_img"
+				/>
+				<br />
+				In what the hard disk is formatted in, the bootable device also
+				should be in formatted at that for proper installation
+			</li>
+			<li>
+				<br />
+				BIOS CMOS Remove cmos battery for over an hour to set default
+				bios configuration Or Shot CMOS jumper for over 10 seconds
+			</li>
+		</ol>
 	</body>
 </html>

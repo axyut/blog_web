@@ -20,6 +20,12 @@ h2 {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	color: var(--h2-color);
 }
+h3 {
+	font-size: 21px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+		sans-serif;
+	color: var(--text-primary);
+}
 
 body {
 	color: #b6b6b6;
@@ -58,4 +64,9 @@ a {
 	font-weight: 500;
 	font-size: 15px;
 	text-decoration: none;
+}
+
+pre {
+	background-color: #101013;
+	border-radius: 2%;
 }
