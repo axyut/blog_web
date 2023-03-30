@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="css/iframe.css" />
+	</head>
+	<body>
+		<h2>Issues</h2>
+		<h3>
+			use for troubleshooting when first installing kubernetes an minikube
+		</h3>
+		<ul>
+			<li>
+				<p>certificate issue</p>
+				minikube delete --all --purge
+			</li>
+			<li>
+				<p>port refused to connect issue</p>
+				removing kubectl and local hosting kubernetes services(kind,
+				kinikube) then reinstalling minikube first and then kubectl
+				(check for .kube for and config file inside)
+			</li>
+			<li><p>no server address when kubectl version</p></li>
+			<li>
+				<p>errImagePull and errImagePullBackoff</p>
+				imagePullPolicy: Never and setting up command in bashrc
+			</li>
+			<li>
+				<p>docker driver error</p>
+				when you are needed to sudo each time to build and run docker.
+				<br />
+				better to put you in a group docker giving it full priviledges
+				($ sudo usermod -aG docker $USER && newgrp docker)
+			</li>
+			<li>
+				<p>uninstalling kubectl</p>
+				Installed kubectl binary via curl: sudo rm
+				/usr/local/bin/kubectl <br />
+				-- Downloaded as part of the Google Cloud SDK: gcloud components
+				remove kubectl <br />
+				-- Installed with snap on Ubuntu (just as Gparmar said): snap
+				remove kubectl <br />
+				In addition, you may need to remove the configuration files in
+				~/.kube <br />
+			</li>
+			<li>
+				<p>minikube addons ingress</p>
+				-- minikube delete <br />
+				-- minikube create --driver=docker <br />
+				-- minikube addons enable ingress <br />
+				-- go to k8s dir with configs the kubectl apply -f . <br />
+			</li>
+			<li>
+				<p>ingress default config installation</p>
+				-- kubectl apply -f doployment_file_location <br />
+				solve by -- kubectl delete -f doployment_file_location <br />
+				-- kubectl apply -f doployment_file_location <br />
+			</li>
+			<li>
+				<p>
+					error: resource mapping not found || make sure CRDs are
+					installed first
+				</p>
+				<a
+					href="http://stackoverflow.com/questions/72224230/error-resource-mapping-not-found-make-sure-crds-are-installed-first"
+					target="_blank"
+					>Visit</a
+				>
+			</li>
+			<li>
+				<p>routes not working / and /posts/:id/comments</p>
+				-- ingress class fixed according to new update <br />
+				-- NodePort removed <br />
+				-- vite configured <br />
+			</li>
+		</ul>
+	</body>
+</html>
